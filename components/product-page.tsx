@@ -1,6 +1,6 @@
 import Image from "next/image";
 import {getTranslations} from "next-intl/server";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Gauge, Zap } from "lucide-react";
 import type { ProductData } from "@/lib/content";
 import { ProductGallery } from "@/components/product-gallery";
 import {
@@ -9,6 +9,25 @@ import {
 } from "@/components/regional-purchase-panel";
 import { Reveal } from "@/components/reveal";
 import {Link} from "@/i18n/navigation";
+
+const runtimeStyles = {
+  ECO: {
+    card: "bg-brand-100 text-black",
+    muted: "text-black/65",
+  },
+  BOOST: {
+    icon: Zap,
+    card: "bg-brand-600 text-white",
+    iconClass: "text-brand-700",
+    muted: "text-white/80",
+  },
+  AUTO: {
+    icon: Gauge,
+    card: "bg-brand-300 text-black",
+    iconClass: "text-brand-500",
+    muted: "text-black/65",
+  },
+} as const;
 
 export async function ProductPage({ product }: { product: ProductData }) {
   const t = await getTranslations("ProductUI");
@@ -44,18 +63,14 @@ export async function ProductPage({ product }: { product: ProductData }) {
                 <div className="min-h-0 overflow-hidden">
                   <div className="px-6 pb-6">
                     <p className="body-copy mb-4 text-black/60">{product.includesIntro}</p>
-                    <div className="overflow-hidden rounded-2xl border border-black/10 bg-white">
-                      <table aria-label={t("includedItems", {model: product.model})} className="w-full border-collapse text-left">
-                        <tbody className="divide-y divide-black/10">
-                          {product.includes.map((item, index) => (
-                            <tr className="transition-colors hover:bg-[#edf3fb]" key={item}>
-                              <th className="w-16 px-4 py-3 text-xs font-semibold tracking-[0.12em] text-[#567dbd]" scope="row">0{index + 1}</th>
-                              <td className="px-4 py-3 text-sm leading-6 text-black/75">{item}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
+                    <ul aria-label={t("includedItems", {model: product.model})} className="space-y-3">
+                      {product.includes.map((item) => (
+                        <li className="flex items-start gap-3 text-sm leading-6 text-black/75" key={item}>
+                          <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-600" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -81,22 +96,41 @@ export async function ProductPage({ product }: { product: ProductData }) {
         </div>
       </section>
 
-      <section className="page-shell section-space">
-        <h2 className="section-title mx-auto text-center">{product.runtimeTitle}</h2>
-        {product.runtimeNote ? <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-black/60">{product.runtimeNote}</p> : null}
-        <div className={`mx-auto mt-12 grid max-w-5xl gap-4 ${product.runtimes.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
-          {product.runtimes.map((runtime) => (
-            <div className="rounded-[28px] bg-[#f0f4fa] p-8 text-center" key={runtime.mode}>
-              <p className="text-6xl font-semibold leading-none text-[#5479b8]">{runtime.minutes}</p>
-              <p className="mt-1 text-lg font-semibold">{t("minutes")}</p>
-              <p className="mt-6 text-xs font-semibold tracking-[0.14em]">{t("mode", {mode: runtime.mode})}</p>
-              <p className="card-copy mt-3 text-black/70">{runtime.body}</p>
-            </div>
-          ))}
+      <section className="mx-auto w-full max-w-[1280px] px-6 py-12 md:px-8 md:py-24 lg:px-12">
+        <h2 className="mx-auto text-balance text-center text-[35px] font-semibold uppercase leading-[1.1]">{product.runtimeTitle}</h2>
+        {product.runtimeNote ? <p className="mx-auto mt-4 max-w-2xl text-center text-md text-black/60">{product.runtimeNote}</p> : null}
+        <div className={`mx-auto mt-12 grid max-w-7xl gap-4 ${product.runtimes.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
+          {product.runtimes.map((runtime) => {
+            const style = runtimeStyles[runtime.mode as keyof typeof runtimeStyles] ?? runtimeStyles.AUTO;
+            const ModeIcon = "icon" in style ? style.icon : null;
+
+            return (
+              <div className={`relative overflow-hidden rounded-[28px] p-8 text-left ${style.card}`} key={runtime.mode}>
+                {runtime.mode === "ECO" ? (
+                  <Image
+                    alt=""
+                    aria-hidden
+                    className="pointer-events-none absolute right-0 bottom-0 size-40 translate-x-[20%] translate-y-[20%] object-contain"
+                    height={160}
+                    src="/images/eco-mode-icon.png"
+                    width={160}
+                  />
+                ) : ModeIcon ? (
+                  <ModeIcon aria-hidden className={`pointer-events-none absolute right-0 bottom-0 size-40 translate-x-[20%] translate-y-[20%] ${"iconClass" in style ? style.iconClass : ""}`} strokeWidth={1.25} />
+                ) : null}
+                <div className="relative">
+                  <p className="font-[family-name:var(--font-ubuntu)] text-[28px] font-semibold">{t("mode", {mode: runtime.mode})}</p>
+                  <p className="mt-6 text-4xl font-normal leading-none">{runtime.minutes}</p>
+                  <p className="mt-2 text-base">{t("minutes")}</p>
+                  <p className={`mt-6 text-base leading-[1.6] ${style.muted}`}>{runtime.body}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {product.lifestyle ? (
+      {/* {product.lifestyle ? (
         <section className="section-space bg-[#587dbd] text-white">
           <div className="page-shell grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
             <div>
@@ -115,13 +149,13 @@ export async function ProductPage({ product }: { product: ProductData }) {
             </div>
           </div>
         </section>
-      ) : null}
+      ) : null} */}
 
       <section className="page-shell section-space">
-        <h2 className="section-title">{t("specs")}</h2>
-        <dl className="mt-12 grid overflow-hidden rounded-[28px] border border-black/10 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 className="text-[35px] font-semibold uppercase leading-[1.1]">{t("specs")}</h2>
+        <dl className="mt-12 grid overflow-hidden rounded-[12px] border border-black/10 sm:grid-cols-2 lg:grid-cols-3">
           {product.specs.map((spec) => (
-            <div className="border-b border-black/10 p-6 sm:border-r" key={spec.label}>
+            <div className="border-b border-black/10 p-3 sm:border-r" key={spec.label}>
               <dt className="text-sm text-black/55">{spec.label}</dt>
               <dd className="mt-2 font-semibold leading-6">{spec.value}</dd>
             </div>

@@ -53,6 +53,13 @@ export function RegionalPurchaseActions({
               <Download aria-hidden size={17} /> {t("downloadManual")}
             </a>
           ) : null}
+          <button
+            className="button-outline cursor-not-allowed border-black/15 bg-black/[0.03] text-black/40 hover:border-black/15 hover:text-black/40"
+            disabled
+            type="button"
+          >
+            {t("buyOutOfStock")}
+          </button>
         </>
       ) : (
         <>
@@ -61,7 +68,7 @@ export function RegionalPurchaseActions({
             disabled
             type="button"
           >
-            {t("comingSoon")}
+            {t("buyOutOfStock")}
           </button>
           <button
             className="button-outline cursor-not-allowed border-black/15 bg-black/[0.03] text-black/40 hover:border-black/15 hover:text-black/40"

@@ -170,6 +170,7 @@
     "shopAt": "Shop at {retailer}",
     "downloadManual": "Download Manual",
     "comingSoon": "Coming Soon",
+    "buyOutOfStock": "Buy Now (Out of Stock)",
     "manualSoon": "Manual available soon",
     "details": "Product Details",
     "includedItems": "{model} included items",

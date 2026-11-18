@@ -170,6 +170,7 @@
     "shopAt": "Acheter sur {retailer}",
     "downloadManual": "Télécharger le manuel",
     "comingSoon": "Bientôt disponible",
+    "buyOutOfStock": "Acheter maintenant (Rupture de stock)",
     "manualSoon": "Manuel bientôt disponible",
     "details": "Détails du produit",
     "includedItems": "Articles compris avec le {model}",

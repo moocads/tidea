@@ -16,7 +16,7 @@ export function ProductGallery({ images, model }: { images: string[]; model: str
   const visibleImages = images.slice(thumbnailStart, thumbnailStart + visibleThumbnailCount);
 
   return (
-    <div>
+    <div className="lg:sticky lg:top-28 lg:self-start">
       <div className="relative aspect-square overflow-hidden rounded-[18px] bg-[#f2f5fa]">
         <Image
           alt={t("productView", {model})}

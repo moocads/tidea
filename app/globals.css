@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-brand-50: #f4f7fb;
+  --color-brand-100: #e7edf8;
+  --color-brand-200: #d4e0f1;
+  --color-brand-300: #b6cae5;
+  --color-brand-400: #87a5d1;
+  --color-brand-500: #6d8fc3;
+  --color-brand-600: #567dbd;
+  --color-brand-700: #45679e;
+  --color-brand-800: #38547f;
+  --color-brand-900: #314768;
+  --font-sans: Arial, Helvetica, ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: white; color: #191919; font-family: var(--font-sans); font-size: 1rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-ubuntu), Arial, Helvetica, sans-serif !important; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  button, input, select, textarea { font: inherit; }
+  button, summary, a { -webkit-tap-highlight-color: transparent; }
+  ::selection { background: #b6cae5; color: #16253d; }
+}
+
+@layer components {
+  .page-shell { @apply mx-auto w-full max-w-[1280px] px-6 md:px-8 lg:px-12; }
+  .section-space { @apply py-12 md:py-24; }
+  .page-title {
+    max-width: 18ch;
+    font-size: clamp(2.5rem, 5.6vw, 4.25rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .feature-title {
+    max-width: 20ch;
+    font-size: clamp(1.875rem, 3.8vw, 3rem);
+    font-weight: 600;
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .section-title {
+    max-width: 22ch;
+    font-size: clamp(2rem, 4.2vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .eyebrow { @apply text-xs font-semibold uppercase text-brand-600; line-height: 1.35; letter-spacing: 0.15em; }
+  .lead-copy { max-width: 62ch; font-size: clamp(1.0625rem, 1.5vw, 1.125rem); line-height: 1.55; }
+  .body-copy { max-width: 70ch; font-size: 1rem; line-height: 1.6; }
+  .card-title { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600; line-height: 1.25; }
+  .card-copy { font-size: 1rem; line-height: 1.6; }
+  .prose-measure { max-width: 75ch; font-size: 1rem; line-height: 1.65; }
+  .prose-measure > * + * { margin-top: 1rem; }
+  .nav-link { @apply relative text-black/80 transition-colors hover:text-black; }
+  .nav-link::after { content: ""; @apply absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-black transition-transform; }
+  .nav-link:hover::after, .nav-link.active::after { @apply scale-x-100; }
+  .mobile-nav-link { @apply block border-b border-black/10 py-4 text-2xl font-medium; }
+  .button-primary { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-[15px] font-semibold tracking-[0.01em] text-white transition hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600; }
+  .button-secondary { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white bg-transparent px-6 py-3 text-[15px] font-semibold tracking-[0.01em] text-white transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white; }
+  .button-outline { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-black/30 bg-white px-6 py-3 text-[15px] font-semibold tracking-[0.01em] transition hover:border-brand-600 hover:text-brand-700; }
+  .button-dark { @apply inline-flex min-h-11 items-center justify-center rounded-full bg-[#1d1d1d] px-6 py-3 text-[15px] font-semibold tracking-[0.01em] text-white transition hover:bg-brand-700; }
+  .field-label { @apply mb-2 block text-sm font-medium; }
+  .field-box { @apply block min-h-12 w-full rounded-xl border border-black/20 bg-white px-4 py-3 text-base leading-6 outline-none transition focus:border-brand-600 focus:ring-2 focus:ring-brand-300; }
+  .field-line { @apply block min-h-12 w-full border-0 border-b border-black bg-transparent px-0 py-2 text-base leading-6 outline-none focus:border-brand-600; }
+}
+
+.footer-gradient {
+  background:
+    radial-gradient(circle at 0% 0%, rgb(74 113 181 / 82%), transparent 35%),
+    radial-gradient(circle at 100% 100%, rgb(206 214 222 / 75%), transparent 34%),
+    radial-gradient(circle at 55% 52%, rgb(247 227 255 / 70%), transparent 28%),
+    #eef2f7;
+}
+
+.hero-overlay { background: linear-gradient(180deg, rgb(17 25 38 / 28%), rgb(17 25 38 / 55%)); }
+.marquee-track { width: max-content; animation: marquee 28s linear infinite; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

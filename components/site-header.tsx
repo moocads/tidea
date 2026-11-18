@@ -1,31 +1,121 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import {useLocale, useTranslations} from "next-intl";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-
-const mainLinks = [
-  { href: "/", label: "Home" },
-  { href: "/aboutus", label: "About" },
-  { href: "/partnership", label: "Partnership" },
-];
-
-const supportLinks = [
-  { href: "/support-tc-100", label: "FAQ" },
-  { href: "/contact-us", label: "Contact Us" },
-  { href: "/warranty", label: "Warranty" },
-];
+import {Link, usePathname, useRouter} from "@/i18n/navigation";
+import {useRegion} from "@/components/region-provider";
+import {regionConfig, type Region} from "@/lib/region";
 
 function isCurrent(pathname: string, href: string) {
   if (href === "/") return pathname === href;
   return pathname.startsWith(href);
 }
 
+function RegionControls({mobile = false}: {mobile?: boolean}) {
+  const t = useTranslations("Header");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
+  const {region, setRegion} = useRegion();
+  const [regionOpen, setRegionOpen] = useState(false);
+  const regions: Region[] = ["CA", "US"];
+
+  function selectRegion(nextRegion: Region) {
+    setRegion(nextRegion);
+    setRegionOpen(false);
+
+    if (nextRegion === "US" && locale === "fr") {
+      router.replace(pathname, {locale: "en"});
+    }
+  }
+
+  return (
+    <div
+      className={
+        mobile
+          ? "mt-8 flex items-start justify-between gap-4 border-t border-black/10 pt-6"
+          : "hidden items-center gap-3 md:flex"
+      }
+    >
+      <div className="relative">
+        <button
+          aria-expanded={regionOpen}
+          aria-label={t("region")}
+          className="flex min-h-10 items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 text-sm font-medium transition hover:bg-white"
+          onClick={() => setRegionOpen((value) => !value)}
+          type="button"
+        >
+          <span className="text-lg leading-none" role="img" aria-hidden>
+            {regionConfig[region].flag}
+          </span>
+          <span>{region}</span>
+          <ChevronDown
+            aria-hidden
+            className={`transition-transform ${regionOpen ? "rotate-180" : ""}`}
+            size={14}
+          />
+        </button>
+        {regionOpen ? (
+          <div className={`absolute z-50 mt-2 w-48 rounded-2xl border border-black/10 bg-white p-2 shadow-[0_16px_36px_rgba(29,45,70,0.16)] ${mobile ? "left-0" : "right-0"}`}>
+            {regions.map((option) => (
+              <button
+                className={`flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm transition hover:bg-brand-100 ${option === region ? "bg-brand-50 font-semibold" : ""}`}
+                key={option}
+                onClick={() => selectRegion(option)}
+                type="button"
+              >
+                <span className="text-lg" role="img" aria-hidden>
+                  {regionConfig[option].flag}
+                </span>
+                <span>
+                  {option === "CA" ? t("canada") : t("unitedStates")}
+                </span>
+              </button>
+            ))}
+          </div>
+        ) : null}
+      </div>
+
+      {region === "CA" ? (
+        <div aria-label={t("language")} className="flex min-h-10 items-center rounded-full border border-black/10 bg-white/70 p-1 text-xs font-semibold">
+          <Link
+            aria-current={locale === "en" ? "page" : undefined}
+            className={`rounded-full px-3 py-2 transition ${locale === "en" ? "bg-brand-600 text-white" : "hover:bg-white"}`}
+            href={pathname}
+            locale="en"
+          >
+            EN
+          </Link>
+          <Link
+            aria-current={locale === "fr" ? "page" : undefined}
+            className={`rounded-full px-3 py-2 transition ${locale === "fr" ? "bg-brand-600 text-white" : "hover:bg-white"}`}
+            href={pathname}
+            locale="fr"
+          >
+            FR
+          </Link>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export function SiteHeader() {
+  const t = useTranslations("Header");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const mainLinks = [
+    { href: "/" as const, label: t("home") },
+    { href: "/aboutus" as const, label: t("about") },
+    { href: "/partnership" as const, label: t("partnership") },
+  ];
+  const supportLinks = [
+    { href: "/support-tc-100" as const, label: t("faq") },
+    { href: "/contact-us" as const, label: t("contact") },
+    { href: "/warranty" as const, label: t("warranty") },
+  ];
   const isProductsPage = pathname === "/vacuums" || ["/tc-100", "/tc-200", "/tc-500"].some((path) => pathname.startsWith(path));
 
   useEffect(() => {
@@ -36,7 +126,7 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-8 md:pt-6 ">
       <div className="mx-auto flex h-14 max-w-[1380px] items-center justify-between rounded-full border border-white/60 bg-white/65 px-6 shadow-[0_12px_40px_rgba(15,35,65,0.16),inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur-xl backdrop-saturate-150 md:h-16 md:px-8">
-        <Link aria-label="TIDEA home" href="/" className="relative z-50 block w-[116px] md:w-[132px]">
+        <Link aria-label={t("homeLabel")} href="/" className="relative z-50 block w-[116px] md:w-[132px]">
           <Image
             alt="TIDEA"
             className="h-auto w-full"
@@ -47,19 +137,19 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-8 font-[family-name:var(--font-ubuntu)] text-[15px] md:flex">
+        <nav aria-label={t("mainNavigation")} className="hidden items-center gap-8 font-[family-name:var(--font-ubuntu)] text-[15px] md:flex">
           <Link className={isCurrent(pathname, "/") ? "nav-link active" : "nav-link"} href="/">
-            Home
+            {t("home")}
           </Link>
           <Link className={isProductsPage ? "nav-link active" : "nav-link"} href="/vacuums">
-            Products
+            {t("products")}
           </Link>
           <Link className={isCurrent(pathname, "/aboutus") ? "nav-link active" : "nav-link"} href="/aboutus">
-            About
+            {t("about")}
           </Link>
           <div className="group relative py-4">
             <Link className={isCurrent(pathname, "/support-tc-100") ? "nav-link active flex items-center gap-1" : "nav-link flex items-center gap-1"} href="/support-tc-100">
-              Support <ChevronDown aria-hidden size={15} />
+              {t("support")} <ChevronDown aria-hidden size={15} />
             </Link>
             <div className="invisible absolute left-1/2 top-full w-44 -translate-x-1/2 rounded-2xl bg-white p-2 opacity-0 shadow-[0_16px_36px_rgba(29,45,70,0.16)] transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
               {supportLinks.map((link) => (
@@ -70,14 +160,14 @@ export function SiteHeader() {
             </div>
           </div>
           <Link className={isCurrent(pathname, "/partnership") ? "nav-link active" : "nav-link"} href="/partnership">
-            Partnership
+            {t("partnership")}
           </Link>
         </nav>
 
-        <div className="hidden text-sm md:block">EN</div>
+        <RegionControls />
         <button
           aria-expanded={open}
-          aria-label={open ? "Close navigation" : "Open navigation"}
+          aria-label={open ? t("closeNavigation") : t("openNavigation")}
           className="relative z-50 grid size-10 place-items-center rounded-full hover:bg-white md:hidden"
           onClick={() => setOpen((value) => !value)}
           type="button"
@@ -88,16 +178,17 @@ export function SiteHeader() {
 
       {open ? (
         <div className="fixed inset-0 z-40 overflow-y-auto bg-[#eef2f8] px-8 pb-12 pt-16 md:hidden">
-          <nav aria-label="Mobile navigation" className="mx-auto mt-12 max-w-md">
+          <nav aria-label={t("mobileNavigation")} className="mx-auto mt-12 max-w-md">
+            <RegionControls mobile />
             {mainLinks.slice(0, 1).map((link) => (
               <Link className="mobile-nav-link" href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
-            <Link className="mobile-nav-link" href="/vacuums" onClick={() => setOpen(false)}>Products</Link>
-            <p className="mb-3 mt-8 text-xs font-semibold uppercase tracking-[0.15em] text-[#5676ae]">Company</p>
+            <Link className="mobile-nav-link" href="/vacuums" onClick={() => setOpen(false)}>{t("products")}</Link>
+            <p className="mb-3 mt-8 text-xs font-semibold uppercase tracking-[0.15em] text-[#5676ae]">{t("company")}</p>
             {mainLinks.slice(1).map((link) => (
               <Link className="mobile-nav-link" href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
-            <p className="mb-3 mt-8 text-xs font-semibold uppercase tracking-[0.15em] text-[#5676ae]">Support</p>
+            <p className="mb-3 mt-8 text-xs font-semibold uppercase tracking-[0.15em] text-[#5676ae]">{t("support")}</p>
             {supportLinks.map((link) => (
               <Link className="mobile-nav-link" href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
             ))}

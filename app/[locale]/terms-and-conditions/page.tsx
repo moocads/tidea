@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
+import {getTranslations, setRequestLocale} from "next-intl/server";
 import { LegalPageSection, type LegalSection } from "@/components/sections/legal-page-section";
+import {termsSectionsFr} from "@/lib/legal-translations";
 
-export const metadata: Metadata = { title: "Terms & Conditions" };
+export async function generateMetadata({params}: {params: Promise<{locale: string}>}): Promise<Metadata> {
+  const {locale} = await params;
+  const t = await getTranslations({locale, namespace: "Legal"});
+  return {title: t("termsTitle")};
+}
 
 const sections: LegalSection[] = [
   {
@@ -58,6 +64,9 @@ const sections: LegalSection[] = [
   },
 ];
 
-export default function TermsPage() {
-  return <main className="pb-16 pt-16"><LegalPageSection lastUpdated="November 15, 2026" sections={sections} title="Terms & Conditions" /></main>;
+export default async function TermsPage({params}: {params: Promise<{locale: string}>}) {
+  const {locale} = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Legal");
+  return <main className="pb-16 pt-16"><LegalPageSection lastUpdated={t("date")} lastUpdatedLabel={t("lastUpdatedLabel")} sections={locale === "fr" ? termsSectionsFr : sections} title={t("termsTitle")} /></main>;
 }

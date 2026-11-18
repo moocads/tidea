@@ -1,0 +1,264 @@
+{
+  "Metadata": {
+    "title": "TIDEA Technology",
+    "description": "Des solutions de nettoyage intelligentes conçues pour simplifier votre quotidien."
+  },
+  "Header": {
+    "home": "Accueil",
+    "products": "Produits",
+    "about": "À propos",
+    "support": "Assistance",
+    "partnership": "Partenariat",
+    "faq": "FAQ",
+    "contact": "Nous joindre",
+    "warranty": "Garantie",
+    "company": "Entreprise",
+    "mainNavigation": "Navigation principale",
+    "mobileNavigation": "Navigation mobile",
+    "homeLabel": "Accueil TIDEA",
+    "openNavigation": "Ouvrir la navigation",
+    "closeNavigation": "Fermer la navigation",
+    "region": "Région",
+    "language": "Langue",
+    "canada": "Canada",
+    "unitedStates": "États-Unis"
+  },
+  "Footer": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "products": "Produits",
+    "partnership": "Partenariat",
+    "support": "Assistance",
+    "contactUs": "Nous joindre",
+    "faq": "FAQ",
+    "warranty": "Garantie",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions générales",
+    "subscribe": "Abonnez-vous pour rester informé",
+    "email": "Courriel",
+    "consent": "Oui, je souhaite m’abonner à l’infolettre.",
+    "privacyNotice": "En vous abonnant, vous acceptez de recevoir des courriels de TIDEA. Vous pouvez vous désabonner en tout temps. Consultez notre <privacy>politique de confidentialité</privacy>.",
+    "submit": "Envoyer",
+    "unavailable": "L’inscription à l’infolettre n’est pas connectée dans cette version frontale.",
+    "copyright": "© 2026 TIDEA Technology. Tous droits réservés."
+  },
+  "Home": {
+    "heroAria": "Un aspirateur sans fil TIDEA nettoie une maison moderne",
+    "heroTitle1": "Nettoyage intelligent.",
+    "heroTitle2": "Vie simplifiée.",
+    "heroBody": "Découvrez des solutions de nettoyage intelligentes qui suivent votre rythme et simplifient l’entretien de chaque pièce de votre maison.",
+    "shopNow": "Acheter maintenant",
+    "marquee1": "MOINS D’EFFORT",
+    "marquee2": "PLUS DE TEMPS POUR VIVRE",
+    "marquee3": "CONÇU POUR LES MAISONS MODERNES",
+    "featured": "Produit vedette",
+    "featuredTitle": "Aspirateur-balai sans fil TIDEA TC-100",
+    "built": "Conçu pour un nettoyage sans effort",
+    "features": [
+      {"title": "Idéal avec les animaux", "body": "Éliminez facilement les poils d’animaux et les dégâts du quotidien."},
+      {"title": "Performance puissante", "body": "Un nettoyage puissant pour les dégâts quotidiens et bien plus."},
+      {"title": "Nettoyage sans effort", "body": "Simplifiez votre routine de nettoyage quotidienne."},
+      {"title": "Conception légère", "body": "Léger, facile à manœuvrer et à recharger."}
+    ],
+    "ourProducts": "Nos produits",
+    "collectionTitle": "Aspirateurs-balais sans fil",
+    "collectionBody": "Les aspirateurs TIDEA se distinguent par leur forte puissance d’aspiration, leurs accessoires polyvalents et leur excellente maniabilité.",
+    "browse": "Voir la collection",
+    "vacuumAlt": "Aspirateur TIDEA",
+    "accessoriesAlt": "Accessoires pour aspirateur TIDEA"
+  },
+  "About": {
+    "meta": "À propos",
+    "eyebrow": "À propos de TIDEA",
+    "title": "Notre histoire",
+    "body": "Chez TIDEA, nous croyons qu’une maison plus agréable commence par une conception réfléchie, une innovation pratique et des produits qui facilitent le quotidien. Nous créons des solutions pour la maison qui allient performance, simplicité et valeur exceptionnelle.",
+    "videoAria": "Des produits TIDEA conçus pour la vie moderne",
+    "valuesTitle": "Conçu pour améliorer votre quotidien.",
+    "values": [
+      {"title": "Pensé pour la vie de tous les jours", "body": "Nous créons des produits intuitifs et pratiques qui s’intègrent naturellement aux maisons modernes et simplifient les tâches quotidiennes."},
+      {"title": "L’innovation en toute simplicité", "body": "Nous associons technologie intelligente et conception réfléchie pour rendre le nettoyage quotidien plus simple et plus facile."},
+      {"title": "La qualité grâce à notre expertise", "body": "Grâce à notre expérience en fabrication et à une chaîne d’approvisionnement intégrée, nous offrons une qualité constante et une performance fiable."},
+      {"title": "Plus de valeur, une vie plus intelligente", "body": "En optimisant la conception et la production, nous rendons les solutions de qualité pour la maison plus accessibles sans compromettre la performance."}
+    ]
+  },
+  "Contact": {
+    "meta": "Communiquer avec l’assistance",
+    "eyebrow": "Assistance TIDEA",
+    "title": "Communiquer avec l’assistance",
+    "body": "Vous avez une question, une réclamation de garantie ou besoin d’une pièce de rechange? Envoyez-nous les renseignements ci-dessous. Notre équipe répond habituellement dans un délai d’une semaine.",
+    "faqLink": "Voir la FAQ du TC-100",
+    "imageAlt": "Aspirateur sans fil TIDEA dans une maison lumineuse",
+    "formTitle": "Nous sommes là pour vous aider",
+    "formBody": "Dans la mesure du possible, indiquez votre numéro de commande, le modèle et joignez une photo nette ou une courte vidéo. Cela nous aidera à résoudre le problème plus rapidement."
+  },
+  "Partnership": {
+    "meta": "Partenariat",
+    "eyebrow": "Partenaires de vente et de distribution",
+    "title": "Partenariat",
+    "body": "Vous souhaitez offrir les produits TIDEA? Parlez-nous de votre entreprise et nous vous répondrons dans un délai d’une semaine.",
+    "imageAlt": "Partenaires d’affaires se serrant la main",
+    "formTitle": "Au plaisir d’échanger avec vous"
+  },
+  "Forms": {
+    "unavailable": "L’envoi du formulaire n’est pas connecté dans cette version frontale.",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Courriel",
+    "retailer": "Où avez-vous acheté le produit?",
+    "retailers": ["Walmart", "Amazon", "Autre détaillant"],
+    "orderNumber": "Numéro de commande",
+    "serialNumber": "Numéro de série (sur la plaque signalétique)",
+    "topic": "Comment pouvons-nous vous aider?",
+    "topics": ["Question sur un produit", "Dépannage", "Réclamation de garantie", "Pièce de rechange", "Autre"],
+    "message": "Message",
+    "attachment": "Photo ou vidéo",
+    "marketing": "Pouvons-nous vous envoyer des nouvelles sur nos produits?",
+    "yes": "Oui",
+    "no": "Non",
+    "send": "Envoyer le message",
+    "privacyNotice": "Nous utilisons vos renseignements uniquement pour répondre à votre demande. Consultez notre",
+    "privacy": "Politique de confidentialité",
+    "page": "Page {step} sur 2",
+    "contactInformation": "Coordonnées",
+    "businessInformation": "Renseignements sur l’entreprise",
+    "phone": "Téléphone",
+    "position": "Poste",
+    "company": "Nom de l’entreprise",
+    "address": "Adresse de l’entreprise",
+    "years": "Années d’activité",
+    "website": "Adresse du site Web",
+    "next": "Suivant",
+    "back": "Retour",
+    "submit": "Envoyer",
+    "select": "Sélectionnez une option"
+  },
+  "Testimonials": {
+    "eyebrow": "Témoignages de clients",
+    "title": "De vraies histoires de clients TIDEA",
+    "carousel": "Témoignages de clients",
+    "stars": "5 étoiles sur 5",
+    "previous": "Afficher le témoignage précédent",
+    "next": "Afficher le témoignage suivant",
+    "choose": "Choisir un témoignage",
+    "show": "Afficher le témoignage {number}",
+    "showFrom": "Afficher le témoignage {number} de {name}",
+    "pause": "Mettre en pause le défilement automatique des témoignages",
+    "play": "Reprendre le défilement automatique des témoignages",
+    "items": [
+      {"quote": "J’utilise cet aspirateur depuis un mois et il est formidable. L’aspiration élimine parfaitement les poils d’animaux et la poussière, tant sur les tapis que sur le bois franc. Il est léger et très facile à vider. C’est le meilleur aspirateur que j’ai eu.", "name": "Sarah M.", "attribution": "Toronto, Ontario"},
+      {"quote": "Cet aspirateur a dépassé mes attentes. Il est silencieux, puissant, et la batterie dure assez longtemps pour nettoyer tout mon condo. J’adore son format compact, parfait pour la vie en ville. Je le recommande vivement!", "name": "David L.", "attribution": "Vancouver, Colombie-Britannique"},
+      {"quote": "J’adore vraiment ce produit! Il a la taille idéale, il est beau et étonnamment puissant. Il fonctionne très bien sur différentes surfaces et rend le nettoyage tellement plus facile. J’aime aussi l’éclairage intégré, qui aide à repérer la saleté autrement invisible.", "attribution": "Acheteur vérifié sur Walmart.com · États-Unis"},
+      {"quote": "Il offre de nombreuses fonctions intéressantes. J’aime particulièrement la tête motorisée pivotante : elle passe facilement sous les meubles et se manœuvre aisément autour des chaises et des tables. Dans l’ensemble, je le recommanderais à ma famille et à mes amis.", "attribution": "Acheteur vérifié sur Walmart.com · États-Unis", "disclosure": "Avis récompensé"}
+    ]
+  },
+  "Vacuums": {
+    "meta": "Aspirateurs sans fil",
+    "heroAlt": "Collection d’aspirateurs TIDEA",
+    "title": "Conçu pour la vie de tous les jours",
+    "body": "Conçus pour les maisons modernes, nos aspirateurs allient performance et confort pour vous aider à éliminer poussière, débris et désordre quotidien. Le nettoyage devient moins une corvée et s’intègre naturellement à votre routine.",
+    "why": "Pourquoi TIDEA?",
+    "reasons": [
+      {"title": "Gagnez du temps, sans compromis", "body": "Les aspirateurs-balais sans fil facilitent le nettoyage quotidien, réduisent l’effort et offrent une performance fiable pour garder votre maison propre sans difficulté."},
+      {"title": "Peu d’entretien par conception", "body": "Des choix de conception intelligents réduisent la fréquence du nettoyage et de l’entretien, pour un entretien rapide, propre et discret."},
+      {"title": "Conçu pour les espaces du quotidien", "body": "Des aires ouvertes aux coins difficiles d’accès, les aspirateurs-balais sans fil s’adaptent aux espaces et aux surfaces de la vie réelle pour offrir des résultats constants partout dans la maison."}
+    ]
+  },
+  "ProductUI": {
+    "home": "Accueil",
+    "breadcrumbs": "Fil d’Ariane",
+    "shopAt": "Acheter sur {retailer}",
+    "downloadManual": "Télécharger le manuel",
+    "comingSoon": "Bientôt disponible",
+    "manualSoon": "Manuel bientôt disponible",
+    "details": "Détails du produit",
+    "includedItems": "Articles compris avec le {model}",
+    "productView": "Vue du produit {model}",
+    "previousImages": "Afficher les images précédentes du produit",
+    "nextImages": "Afficher les images suivantes du produit",
+    "viewImage": "Afficher l’image {number} du {model}",
+    "minutes": "Minutes",
+    "mode": "MODE {mode}",
+    "specs": "Caractéristiques techniques"
+  },
+  "Support": {
+    "meta": "Assistance TC-100",
+    "eyebrow": "Entretien du produit",
+    "title": "Assistance TC-100",
+    "body": "Trouvez rapidement des réponses, des conseils d’entretien, les manuels du produit et la meilleure façon de joindre l’équipe d’assistance TIDEA.",
+    "notice": "Votre TC-100 est neuf? Rechargez-le complètement, pendant environ 5,5 heures, avant le premier nettoyage. Les batteries perdent un peu de charge pendant le transport; il est donc normal qu’elle ne soit pas pleine au déballage.",
+    "imageAlt": "Aspirateur-balai sans fil TIDEA TC-100",
+    "faqTitle": "Foire aux questions",
+    "faqBody": "Résolvez les problèmes courants et maintenez la performance optimale de votre aspirateur.",
+    "viewFaqs": "Voir la FAQ →",
+    "manualTitle": "Manuels d’utilisation",
+    "manualBody": "Consultez les instructions d’installation, d’utilisation et d’entretien de votre produit.",
+    "downloadManual": "Télécharger le manuel →",
+    "partsTitle": "Pièces de rechange",
+    "partsBody": "Communiquez avec l’assistance pour obtenir des pièces de rechange compatibles et de l’aide au titre de la garantie.",
+    "requestPart": "Demander une pièce →",
+    "manualAvailable": "Manuel d’utilisation du {model} (PDF) · English / Français / Español",
+    "download": "Télécharger →",
+    "availableSoon": "Bientôt disponible",
+    "needPart": "Besoin d’une pièce de rechange?",
+    "needPartBody": "Indiquez-nous votre modèle, votre numéro de série et la pièce recherchée. Notre équipe d’assistance vous aidera à trouver la bonne pièce.",
+    "requestPartButton": "Demander une pièce"
+  },
+  "FAQ": {
+    "categoriesLabel": "Catégories de la FAQ",
+    "categories": [
+      {"id": "troubleshooting", "label": "Dépannage", "items": [
+        {"question": "L’aspirateur s’est éteint tout seul.", "answer": "Si l’indicateur de batterie a clignoté cinq fois avant l’arrêt, la protection contre la surchauffe s’est déclenchée. Laissez l’appareil refroidir de 20 à 30 minutes, vérifiez que le tube, la brosse à plancher et le bac à poussière ne sont pas obstrués, puis remettez-le en marche. Si la batterie est faible, rechargez-la."},
+        {"question": "La puissance d’aspiration semble faible.", "answer": "Videz le bac à poussière, rincez les deux filtres (ils doivent être complètement secs avant d’être réinstallés) et vérifiez que le tube et la brosse à plancher ne sont pas obstrués. Pour les saletés plus tenaces, utilisez le mode BOOST."},
+        {"question": "La recharge s’est interrompue en cours de route.", "answer": "La recharge s’interrompt automatiquement si l’aspirateur est trop chaud et reprend une fois qu’il a refroidi. Rechargez-le à température ambiante, loin des appareils de chauffage et de la lumière directe du soleil."}
+      ]},
+      {"id": "cleaning-care", "label": "Nettoyage et entretien", "items": [
+        {"question": "Quand dois-je vider le bac à poussière?", "answer": "Videz-le lorsque la saleté atteint le repère MAX. Tenez le bac au-dessus d’une poubelle et appuyez sur le bouton de dégagement. Le couvercle s’ouvre et le contenu tombe."},
+        {"question": "Comment nettoyer les filtres?", "answer": "Retirez le bac à poussière, faites glisser le filtre en acier inoxydable, puis retirez le filtre lavable. Rincez-les à l’eau froide ou tiède et laissez-les sécher complètement à l’air libre pendant au moins 24 heures avant de les remettre en place. N’utilisez jamais l’aspirateur sans filtre et ne réinstallez jamais un filtre humide."},
+        {"question": "Des cheveux sont enroulés autour de la brosse. Comment la nettoyer?", "answer": "Éteignez l’aspirateur et retirez la brosse à plancher. Tournez le mécanisme de dégagement de la brosse en position ouverte et retirez-la. Coupez les cheveux avec la lame de l’outil de nettoyage en profondeur ou des ciseaux, puis remettez la brosse en place et verrouillez le mécanisme."}
+      ]},
+      {"id": "using-your-vacuum", "label": "Utilisation de l’aspirateur", "items": [
+        {"question": "Mode ECO ou BOOST : lequel choisir?", "answer": "Le mode ECO convient au nettoyage quotidien des planchers durs et des tapis peu ou moyennement sales, et offre la plus grande autonomie. Le mode BOOST augmente la puissance d’aspiration pour les saletés plus tenaces, mais réduit l’autonomie. Appuyez sur le bouton de mode pour changer. L’aspirateur démarre toujours en mode ECO."},
+        {"question": "Qu’est-ce que l’outil de nettoyage en profondeur?", "answer": "Il s’agit d’une brosse de nettoyage avec coupe-fil intégré. Utilisez la brosse pour enlever la poussière du bac et la lame arrière pour couper les cheveux enroulés autour du bac et de la brosse à plancher."},
+        {"question": "L’aspirateur peut-il tenir debout seul?", "answer": "Non. Son centre de gravité élevé peut le faire basculer. Lorsque vous faites une pause, accrochez-le au support mural ou posez-le à plat sur le sol."},
+        {"question": "Comment installer le support mural?", "answer": "Marquez les quatre trous à l’aide du support mural, percez avec une mèche de 5 mm, insérez les chevilles fournies, puis vissez le support. Sur une cloison sèche, utilisez toujours les chevilles, car les vis seules pourraient s’arracher. Vérifiez l’absence de fils électriques et de tuyaux avant de percer."},
+        {"question": "Puis-je l’utiliser sur des surfaces mouillées ou aspirer des liquides?", "answer": "Non. Le TC-100 est réservé à une utilisation à sec. Les liquides peuvent endommager le moteur et ces dommages ne sont pas couverts par la garantie."}
+      ]},
+      {"id": "charging-battery", "label": "Recharge et batterie", "items": [
+        {"question": "Combien de temps faut-il pour le recharger?", "answer": "Environ 5,5 heures lorsque la batterie est vide. L’indicateur clignote pendant la recharge et reste allumé lorsqu’elle est terminée. Avant la première utilisation, rechargez complètement la batterie."},
+        {"question": "Comment le recharger?", "answer": "Accrochez l’aspirateur au support mural afin que la fiche de recharge se branche à la prise située sous l’appareil. Vous pouvez aussi brancher l’adaptateur directement dans la prise de recharge de l’aspirateur. La batterie se recharge uniquement lorsqu’elle est installée dans l’appareil."},
+        {"question": "Quelle est l’autonomie d’une recharge complète?", "answer": "Environ 45 minutes en mode ECO et 25 minutes en mode BOOST. L’autonomie réelle dépend du mode, du type de sol et de l’accessoire utilisé."},
+        {"question": "Comment retirer la batterie?", "answer": "Maintenez le bouton de dégagement de la batterie enfoncé, puis tirez sur la batterie. Pour la remettre en place, poussez-la jusqu’à ce qu’elle s’enclenche."},
+        {"question": "Comment le ranger s’il n’est pas utilisé pendant un certain temps?", "answer": "Rangez-le avec une charge d’environ 50 à 80 %, dans un endroit sec à l’abri de la lumière directe du soleil, et vérifiez la charge tous les quelques mois. Un entreposage prolongé avec une batterie complètement déchargée peut l’endommager de façon permanente."}
+      ]}
+    ]
+  },
+  "Warranty": {
+    "meta": "Garantie",
+    "titleBefore": "Garantie limitée de",
+    "titleAccent": "12 mois",
+    "intro": "Chaque aspirateur TIDEA est couvert pendant 12 mois à compter de la date d’achat. Voici ce qui est couvert et comment obtenir de l’aide.",
+    "cards": [
+      {"title": "Ce qui est couvert", "body": "Les défauts de matériaux et de fabrication pendant 12 mois à compter de l’achat. La batterie est couverte pendant la même période de 12 mois."},
+      {"title": "Qui contacter", "body": "Pendant la période de retour du détaillant, les retours, échanges et remboursements sont gérés par le magasin où vous avez effectué l’achat. Par la suite, communiquez directement avec nous pour le reste de la période de 12 mois."},
+      {"title": "Comment nous réglons le problème", "body": "Dans la plupart des cas, nous vous envoyons directement une pièce de rechange; vous n’avez donc rien à retourner. Ne nous retournez pas votre aspirateur avant de nous avoir contactés."}
+    ],
+    "claimTitle": "Comment présenter une réclamation",
+    "steps": ["Trouvez votre numéro de commande ou votre reçu.", "Repérez le numéro de série sur la plaque signalétique de l’aspirateur.", "Prenez une courte vidéo ou une photo du problème. Une vidéo nous permet généralement de le résoudre dès notre première réponse.", "Envoyez-nous ces renseignements à l’aide du formulaire de contact."],
+    "start": "Présenter une réclamation",
+    "registration": "L’enregistrement du produit n’est pas requis pour bénéficier de la garantie.",
+    "fullTerms": "Conditions complètes de la garantie",
+    "limitedTitle": "Garantie limitée TIDEA"
+  },
+  "Legal": {
+    "lastUpdatedLabel": "Dernière mise à jour",
+    "privacyTitle": "Politique de confidentialité",
+    "termsTitle": "Conditions générales",
+    "date": "15 novembre 2026"
+  },
+  "NotFound": {
+    "title": "Page introuvable",
+    "body": "La page demandée est introuvable.",
+    "home": "Retour à l’accueil"
+  }
+}

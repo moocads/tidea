@@ -1,0 +1,264 @@
+{
+  "Metadata": {
+    "title": "TIDEA Technology",
+    "description": "Smart cleaning solutions designed for effortless everyday living."
+  },
+  "Header": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "support": "Support",
+    "partnership": "Partnership",
+    "faq": "FAQ",
+    "contact": "Contact Us",
+    "warranty": "Warranty",
+    "company": "Company",
+    "mainNavigation": "Main navigation",
+    "mobileNavigation": "Mobile navigation",
+    "homeLabel": "TIDEA home",
+    "openNavigation": "Open navigation",
+    "closeNavigation": "Close navigation",
+    "region": "Region",
+    "language": "Language",
+    "canada": "Canada",
+    "unitedStates": "United States"
+  },
+  "Footer": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "products": "Products",
+    "partnership": "Partnership",
+    "support": "Support",
+    "contactUs": "Contact Us",
+    "faq": "FAQ",
+    "warranty": "Warranty",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "subscribe": "Subscribe and stay updated",
+    "email": "Email",
+    "consent": "Yes, subscribe me to your newsletter.",
+    "privacyNotice": "By subscribing, you agree to receive emails from TIDEA. You can unsubscribe at any time. See our <privacy>Privacy Policy</privacy>.",
+    "submit": "Submit",
+    "unavailable": "Newsletter submission is not connected in this frontend-only phase.",
+    "copyright": "© 2026 TIDEA Technology. All rights reserved."
+  },
+  "Home": {
+    "heroAria": "TIDEA cordless vacuum cleaning a modern home",
+    "heroTitle1": "Smart Cleaning.",
+    "heroTitle2": "Effortless Living.",
+    "heroBody": "Discover intelligent cleaning solutions designed to keep up with your life and bring ease to every corner of your home.",
+    "shopNow": "Shop now",
+    "marquee1": "LESS EFFORT",
+    "marquee2": "MORE LIVING",
+    "marquee3": "MADE FOR MODERN HOMES",
+    "featured": "Featured Products",
+    "featuredTitle": "TIDEA TC-100 Cordless Stick Vacuum",
+    "built": "Built for Effortless Cleaning",
+    "features": [
+      {"title": "Pet-Friendly Cleaning", "body": "Tackle pet hair and everyday messes with ease."},
+      {"title": "Powerful Performance", "body": "Powerful cleaning for everyday messes and more."},
+      {"title": "Effortless Cleaning", "body": "Make your daily cleaning routine simpler."},
+      {"title": "Lightweight Design", "body": "Lightweight and easy to maneuver and charge."}
+    ],
+    "ourProducts": "Our Products",
+    "collectionTitle": "Cordless Stick Vacuum Cleaner",
+    "collectionBody": "TIDEA vacuums stand out for strong suction, versatile attachments, and easy maneuverability.",
+    "browse": "Browse Collection",
+    "vacuumAlt": "TIDEA vacuum",
+    "accessoriesAlt": "TIDEA vacuum accessories"
+  },
+  "About": {
+    "meta": "About",
+    "eyebrow": "About TIDEA",
+    "title": "Our Story",
+    "body": "At TIDEA, we believe that a better home starts with thoughtful design, practical innovation, and products that make everyday life easier. We create home solutions that bring together performance, simplicity, and exceptional value.",
+    "videoAria": "TIDEA products designed for modern living",
+    "valuesTitle": "Designed for Better Everyday Living.",
+    "values": [
+      {"title": "Designed Around Everyday Life", "body": "We create intuitive, practical products that fit naturally into modern homes and simplify daily routines."},
+      {"title": "Innovation Made Simple", "body": "We combine smart technology with thoughtful design to make everyday cleaning easier and more effortless."},
+      {"title": "Quality Through Expertise", "body": "Backed by manufacturing experience and an integrated supply chain, we deliver consistent quality and dependable performance."},
+      {"title": "Better Value, Smarter Living", "body": "By optimizing design and production, we make quality home solutions more accessible without compromising performance."}
+    ]
+  },
+  "Contact": {
+    "meta": "Contact Support",
+    "eyebrow": "TIDEA Support",
+    "title": "Contact Support",
+    "body": "Questions, warranty claims, or replacement parts? Send us the details below. Our team typically replies within one week.",
+    "faqLink": "View TC-100 FAQs",
+    "imageAlt": "TIDEA cordless vacuum in a bright home",
+    "formTitle": "We’re Here to Help",
+    "formBody": "Include your order number, model, and a clear photo or short video when possible. It helps us resolve the issue more quickly."
+  },
+  "Partnership": {
+    "meta": "Partnership",
+    "eyebrow": "Retail & Distribution Partners",
+    "title": "Partnership",
+    "body": "Interested in carrying TIDEA? Tell us about your business and we’ll get back to you within one week.",
+    "imageAlt": "Business partners shaking hands",
+    "formTitle": "Look Forward to Connecting"
+  },
+  "Forms": {
+    "unavailable": "Form submission is not connected in this frontend-only phase.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "retailer": "Where did you buy it?",
+    "retailers": ["Walmart", "Amazon", "Other retailer"],
+    "orderNumber": "Order number",
+    "serialNumber": "Serial number (on the rating label)",
+    "topic": "What do you need help with?",
+    "topics": ["Product question", "Troubleshooting", "Warranty claim", "Replacement part", "Other"],
+    "message": "Message",
+    "attachment": "Photo or video",
+    "marketing": "May we contact you with product updates?",
+    "yes": "Yes",
+    "no": "No",
+    "send": "Send Message",
+    "privacyNotice": "We only use your details to answer your request. See our",
+    "privacy": "Privacy Policy",
+    "page": "Page {step} out of 2",
+    "contactInformation": "Contact Information",
+    "businessInformation": "Business Information",
+    "phone": "Phone",
+    "position": "Position",
+    "company": "Company name",
+    "address": "Company Address",
+    "years": "Years of Operations",
+    "website": "Website URL",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Submit",
+    "select": "Select an option"
+  },
+  "Testimonials": {
+    "eyebrow": "Customer Stories",
+    "title": "Real Stories from TIDEA Customers",
+    "carousel": "Customer testimonials",
+    "stars": "5 out of 5 stars",
+    "previous": "Show previous testimonial",
+    "next": "Show next testimonial",
+    "choose": "Choose a testimonial",
+    "show": "Show testimonial {number}",
+    "showFrom": "Show testimonial {number} from {name}",
+    "pause": "Pause automatic testimonial rotation",
+    "play": "Play automatic testimonial rotation",
+    "items": [
+      {"quote": "I’ve been using this vacuum for a month now, and it’s amazing. The suction handles pet hair and dust perfectly on both carpet and hardwood. It’s lightweight and super easy to empty. The best vacuum I’ve owned.", "name": "Sarah M.", "attribution": "Toronto, Ontario"},
+      {"quote": "This vacuum exceeded my expectations. It’s quiet, powerful, and the battery lasts long enough to clean my entire condo. I love how compact it is—perfect for city living. Highly recommend!", "name": "David L.", "attribution": "Vancouver, British Columbia"},
+      {"quote": "I really love this product! It’s the perfect size, looks great, and is surprisingly powerful. It works really well on different surfaces and makes cleaning so much easier. I also love the built-in light because it helps you see dirt you might otherwise miss.", "attribution": "Verified Walmart.com buyer · United States"},
+      {"quote": "It has a lot of good features. One nice thing I really like is the swivel power head, great to get under furniture, easy to maneuver around chairs and tables. Overall I would recommend it to family and friends.", "attribution": "Verified Walmart.com buyer · United States", "disclosure": "Incentivized Review"}
+    ]
+  },
+  "Vacuums": {
+    "meta": "Cordless Vacuum Cleaners",
+    "heroAlt": "TIDEA vacuum collection",
+    "title": "Designed for Everyday Living",
+    "body": "Built for modern homes, balancing performance with comfort to help you stay ahead of dust, debris and daily clutter. Cleaning becomes less of a task, and more of a natural part of everyday life.",
+    "why": "Why TIDEA?",
+    "reasons": [
+      {"title": "Save Time, Without Compromise", "body": "Cordless stick vacuums make everyday cleaning easier, reducing effort while delivering reliable performance and helping you keep your home effortlessly clean."},
+      {"title": "Low-Maintenance by Design", "body": "Smart design choices reduce the need for frequent cleaning and upkeep, keeping maintenance quick, clean, and out of the way."},
+      {"title": "Built for Everyday Spaces", "body": "From open living areas to hard-to-reach corners, cordless stick vacuums adapt to real-life spaces and surfaces, delivering consistent results throughout your home."}
+    ]
+  },
+  "ProductUI": {
+    "home": "Home",
+    "breadcrumbs": "Breadcrumbs",
+    "shopAt": "Shop at {retailer}",
+    "downloadManual": "Download Manual",
+    "comingSoon": "Coming Soon",
+    "manualSoon": "Manual available soon",
+    "details": "Product Details",
+    "includedItems": "{model} included items",
+    "productView": "{model} product view",
+    "previousImages": "Show previous product images",
+    "nextImages": "Show next product images",
+    "viewImage": "View {model} image {number}",
+    "minutes": "Minutes",
+    "mode": "{mode} MODE",
+    "specs": "Technical Specifications"
+  },
+  "Support": {
+    "meta": "TC-100 Support",
+    "eyebrow": "Product Care",
+    "title": "TC-100 Support",
+    "body": "Find quick answers, care guidance, product manuals, and the right way to contact the TIDEA support team.",
+    "notice": "New TC-100? Charge it fully, about 5.5 hours, before your first clean. Batteries lose some charge in transit, so a partly empty battery out of the box is normal.",
+    "imageAlt": "TIDEA TC-100 cordless stick vacuum",
+    "faqTitle": "Frequently Asked Questions",
+    "faqBody": "Troubleshoot common issues and keep your vacuum performing at its best.",
+    "viewFaqs": "View FAQs →",
+    "manualTitle": "Instruction Manuals",
+    "manualBody": "Find setup, operation, and care instructions for your product.",
+    "downloadManual": "Download manual →",
+    "partsTitle": "Replacement Parts",
+    "partsBody": "Contact support for compatible replacement parts and warranty help.",
+    "requestPart": "Request a part →",
+    "manualAvailable": "{model} Instruction Manual (PDF) · English / Français / Español",
+    "download": "Download →",
+    "availableSoon": "Available soon",
+    "needPart": "Need a Replacement Part?",
+    "needPartBody": "Tell us your model, serial number, and the part you need. Our support team will help identify the correct replacement.",
+    "requestPartButton": "Request a part"
+  },
+  "FAQ": {
+    "categoriesLabel": "FAQ categories",
+    "categories": [
+      {"id": "troubleshooting", "label": "Troubleshooting", "items": [
+        {"question": "The vacuum shut off on its own.", "answer": "If the battery indicator flashed five times before it stopped, the overheat protection was triggered. Let it cool for 20 to 30 minutes, check the pipe, floor brush and dust bin for blockages, then switch it on again. If the battery is low, recharge it."},
+        {"question": "Suction feels weak.", "answer": "Empty the dust bin, rinse both filters (they must be completely dry before reinstalling), and check the pipe and floor brush for blockages. For heavier dirt, switch to Boost."},
+        {"question": "It stopped charging partway through.", "answer": "Charging pauses automatically if the vacuum is too warm and resumes once it cools down. Charge it at room temperature, away from heaters and direct sunlight."}
+      ]},
+      {"id": "cleaning-care", "label": "Cleaning & Care", "items": [
+        {"question": "When should I empty the dust bin?", "answer": "Empty it when the dirt reaches the MAX mark. Hold the dust bin over a trash can and press the release button. The lid opens and the contents drop out."},
+        {"question": "How do I clean the filters?", "answer": "Remove the dust bin, slide out the stainless steel filter, then pull the washable filter out of it. Rinse both under cold or lukewarm water and let them air-dry completely (allow at least 24 hours) before putting them back. Never use the vacuum without the filter, and never reinstall a damp filter."},
+        {"question": "Hair is wrapped around the brush roll. How do I clean it?", "answer": "Switch off the vacuum and remove the floor brush. Turn the brush roll release to the open position and pull the brush roll out. Cut away hair with the Deep-Clean Tool's blade or a pair of scissors, then slide the brush roll back in and turn the release to close."}
+      ]},
+      {"id": "using-your-vacuum", "label": "Using Your Vacuum", "items": [
+        {"question": "Eco or Boost: which mode should I use?", "answer": "Eco is for everyday cleaning of hard floors and rugs with light to medium dirt, and gives the longest runtime. Boost gives more suction for heavier dirt, with a shorter runtime. Press the mode button to switch. The vacuum always starts in Eco."},
+        {"question": "What is the Deep-Clean Tool?", "answer": "It's a cleaning brush with a built-in cutter. Use the brush to clear dust from the dust bin, and the rear blade to cut away hair wrapped around the dust bin area and the floor brush."},
+        {"question": "Can the vacuum stand up on its own?", "answer": "No. It has a high center of gravity and can tip over. When you pause, hang it on the wall mount or lay it flat on the floor."},
+        {"question": "How do I install the wall mount?", "answer": "Mark the four holes using the wall mount, drill with a 5 mm bit, insert the wall plugs supplied in the box, then screw the mount in place. On drywall, always use the wall plugs, because screws alone will pull out. Check for electrical wires and pipes before drilling."},
+        {"question": "Can I use it on wet surfaces or to pick up liquids?", "answer": "No. The TC-100 is for dry use only. Liquids can damage the motor and are not covered by the warranty."}
+      ]},
+      {"id": "charging-battery", "label": "Charging & Battery", "items": [
+        {"question": "How long does it take to charge?", "answer": "About 5.5 hours from empty. The battery indicator flashes while charging and stays lit when charging is complete. Before your first use, charge it fully."},
+        {"question": "How do I charge it?", "answer": "Hang the vacuum on the wall mount so the charging plug connects to the socket on the bottom of the vacuum. You can also plug the adapter directly into the charging socket on the vacuum. The battery charges only while it is installed in the vacuum."},
+        {"question": "How long does it run on a full charge?", "answer": "About 45 minutes in Eco mode and about 25 minutes in Boost mode. Actual runtime depends on the mode, floor type and attachment you use."},
+        {"question": "How do I remove the battery?", "answer": "Press and hold the battery release button, then pull the battery out. To reinstall it, push it in until it clicks."},
+        {"question": "How should I store it if I won't use it for a while?", "answer": "Store it charged to about 50–80%, in a dry place out of direct sunlight, and check the charge every few months. Storing it fully discharged for a long time can permanently damage the battery."}
+      ]}
+    ]
+  },
+  "Warranty": {
+    "meta": "Warranty",
+    "titleBefore": "12-Month Limited",
+    "titleAccent": "Warranty",
+    "intro": "Every TIDEA vacuum is covered for 12 months from the date of purchase. Here’s what’s covered and how to get help.",
+    "cards": [
+      {"title": "What's covered", "body": "Defects in materials and workmanship for 12 months from purchase. The battery is covered for the same 12 months."},
+      {"title": "Who to contact", "body": "Within your retailer's return window, returns, exchanges and refunds are handled by the store you bought from. After that, for the rest of the 12 months, contact us directly."},
+      {"title": "How we fix it", "body": "In most cases we send a replacement part straight to you, so you won't need to ship anything back. Please don't return your vacuum to us before contacting us."}
+    ],
+    "claimTitle": "How to Make a Claim",
+    "steps": ["Find your order number or receipt.", "Find the serial number on the rating label on the vacuum.", "Take a short video or photo of the problem. A video usually lets us solve it on the first reply.", "Send it to us using the contact form."],
+    "start": "Start a Claim",
+    "registration": "Product registration is not required for warranty coverage.",
+    "fullTerms": "Full Warranty Terms",
+    "limitedTitle": "TIDEA Limited Warranty"
+  },
+  "Legal": {
+    "lastUpdatedLabel": "Last updated",
+    "privacyTitle": "Privacy Policy",
+    "termsTitle": "Terms & Conditions",
+    "date": "November 15, 2026"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "body": "The page you requested could not be found.",
+    "home": "Return home"
+  }
+}

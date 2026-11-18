@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Pause, Play, Star } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/button";
+import {useTranslations} from "next-intl";
 
 const AUTO_ROTATE_DELAY = 6500;
 
@@ -15,33 +16,9 @@ type Testimonial = {
   disclosure?: string;
 };
 
-const testimonials: Testimonial[] = [
-  {
-    quote:
-      "I’ve been using this vacuum for a month now, and it’s amazing. The suction handles pet hair and dust perfectly on both carpet and hardwood. It’s lightweight and super easy to empty. The best vacuum I’ve owned.",
-    name: "Sarah M.",
-    location: "Toronto, Ontario",
-  },
-  {
-    quote:
-      "This vacuum exceeded my expectations. It’s quiet, powerful, and the battery lasts long enough to clean my entire condo. I love how compact it is—perfect for city living. Highly recommend!",
-    name: "David L.",
-    location: "Vancouver, British Columbia",
-  },
-  {
-    quote:
-      "I really love this product! It’s the perfect size, looks great, and is surprisingly powerful. It works really well on different surfaces and makes cleaning so much easier. I also love the built-in light because it helps you see dirt you might otherwise miss.",
-    attribution: "Verified Walmart.com buyer · United States",
-  },
-  {
-    quote:
-      "It has a lot of good features. One nice thing I really like is the swivel power head, great to get under furniture, easy to maneuver around chairs and tables. Overall I would recommend it to family and friends.",
-    attribution: "Verified Walmart.com buyer · United States",
-    disclosure: "Incentivized Review",
-  },
-];
-
 export function TestimonialSlider() {
+  const t = useTranslations("Testimonials");
+  const testimonials = t.raw("items") as Testimonial[];
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isTemporarilyPaused, setIsTemporarilyPaused] = useState(false);
@@ -57,7 +34,7 @@ export function TestimonialSlider() {
     }, AUTO_ROTATE_DELAY);
 
     return () => window.clearInterval(interval);
-  }, [isAutoPlaying, isTemporarilyPaused, prefersReducedMotion]);
+  }, [isAutoPlaying, isTemporarilyPaused, prefersReducedMotion, testimonials.length]);
 
   const showPrevious = () => {
     setDirection(-1);
@@ -81,7 +58,7 @@ export function TestimonialSlider() {
 
   return (
     <div
-      aria-label="Customer testimonials"
+      aria-label={t("carousel")}
       aria-roledescription="carousel"
       className="mt-8 rounded-2xl bg-white p-6 shadow-sm md:p-12"
       onBlurCapture={(event) => {
@@ -105,7 +82,7 @@ export function TestimonialSlider() {
             key={testimonial.quote}
             transition={{ duration: prefersReducedMotion ? 0.01 : 0.42, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div aria-label="5 out of 5 stars" className="flex justify-center gap-2" role="img">
+            <div aria-label={t("stars")} className="flex justify-center gap-2" role="img">
               {Array.from({ length: 5 }, (_, index) => (
                 <Star aria-hidden="true" className="size-5 fill-amber-400 text-amber-400" key={index} strokeWidth={1.8} />
               ))}
@@ -126,7 +103,7 @@ export function TestimonialSlider() {
 
       <div className="mt-8 flex items-center justify-center gap-2">
         <Button
-          aria-label="Show previous testimonial"
+          aria-label={t("previous")}
           className="size-12 rounded-full border-brand-200 text-brand-700 hover:bg-brand-50"
           onClick={showPrevious}
           size="icon"
@@ -136,11 +113,11 @@ export function TestimonialSlider() {
           <ChevronLeft aria-hidden="true" className="size-5" />
         </Button>
 
-        <div aria-label="Choose a testimonial" className="flex items-center" role="group">
+        <div aria-label={t("choose")} className="flex items-center" role="group">
           {testimonials.map((item, index) => (
             <button
               aria-current={index === activeIndex ? "true" : undefined}
-              aria-label={`Show testimonial ${index + 1}${item.name ? ` from ${item.name}` : ""}`}
+              aria-label={item.name ? t("showFrom", {number: index + 1, name: item.name}) : t("show", {number: index + 1})}
               className="flex size-10 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
               key={item.quote}
               onClick={() => showSlide(index)}
@@ -157,7 +134,7 @@ export function TestimonialSlider() {
         </div>
 
         <Button
-          aria-label="Show next testimonial"
+          aria-label={t("next")}
           className="size-12 rounded-full border-brand-200 text-brand-700 hover:bg-brand-50"
           onClick={showNext}
           size="icon"
@@ -169,7 +146,7 @@ export function TestimonialSlider() {
 
         {!prefersReducedMotion && (
           <Button
-            aria-label={isAutoPlaying ? "Pause automatic testimonial rotation" : "Play automatic testimonial rotation"}
+            aria-label={isAutoPlaying ? t("pause") : t("play")}
             className="size-12 rounded-full border-brand-200 text-brand-700 hover:bg-brand-50"
             onClick={() => setIsAutoPlaying((current) => !current)}
             size="icon"

@@ -1,36 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import {useTranslations} from "next-intl";
 import { FormEvent, useState } from "react";
-
-const footerGroups = [
-  [
-    ["Home", "/"],
-    ["About", "/aboutus"],
-    ["Contact", "/contact-us"],
-  ],
-  [
-    ["Products", "/vacuums"],
-    ["Partnership", "/partnership"],
-  ],
-  [
-    ["Support", "/support-tc-100"],
-    ["Contact Us", "/contact-us"],
-    ["FAQ", "/support-tc-100"],
-    ["Warranty", "/warranty"],
-    ["Privacy Policy", "/privacy-policy"],
-    ["Terms & Conditions", "/terms-and-conditions"],
-  ],
-];
+import {Link} from "@/i18n/navigation";
 
 export function SiteFooter() {
+  const t = useTranslations("Footer");
   const [message, setMessage] = useState("");
+  const footerGroups = [
+    [[t("home"), "/"], [t("about"), "/aboutus"], [t("contact"), "/contact-us"]],
+    [[t("products"), "/vacuums"], [t("partnership"), "/partnership"]],
+    [[t("support"), "/support-tc-100"], [t("contactUs"), "/contact-us"], [t("faq"), "/support-tc-100"], [t("warranty"), "/warranty"], [t("privacy"), "/privacy-policy"], [t("terms"), "/terms-and-conditions"]],
+  ] as const;
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!event.currentTarget.checkValidity()) return;
-    setMessage("Newsletter submission is not connected in this frontend-only phase.");
+    setMessage(t("unavailable"));
   }
 
   return (
@@ -58,22 +45,23 @@ export function SiteFooter() {
             ))}
           </div>
           <form className="space-y-6" noValidate onSubmit={handleSubmit}>
-            <h2 className="card-title">Subscribe and stay updated</h2>
-            <label className="block text-sm" htmlFor="newsletter-email">Email *</label>
+            <h2 className="card-title">{t("subscribe")}</h2>
+            <label className="block text-sm" htmlFor="newsletter-email">{t("email")} *</label>
             <input className="field-line" id="newsletter-email" name="email" required type="email" />
             <label className="flex items-start gap-3 text-sm">
               <input className="mt-1 size-4 accent-[#567dbd]" type="checkbox" />
-              <span>Yes, subscribe me to your newsletter.</span>
+              <span>{t("consent")}</span>
             </label>
             <p className="text-xs leading-5 text-black/60">
-              By subscribing, you agree to receive emails from TIDEA. You can unsubscribe at any time. See our{" "}
-              <Link className="underline underline-offset-2 hover:text-[#5579b8]" href="/privacy-policy">Privacy Policy</Link>.
+              {t.rich("privacyNotice", {
+                privacy: (chunks) => <Link className="underline underline-offset-2 hover:text-[#5579b8]" href="/privacy-policy">{chunks}</Link>,
+              })}
             </p>
-            <button className="button-dark" type="submit">Submit</button>
+            <button className="button-dark" type="submit">{t("submit")}</button>
             {message ? <p aria-live="polite" className="text-sm text-[#4f6f9f]">{message}</p> : null}
           </form>
         </div>
-        <p className="pt-8 text-sm">© 2026 TIDEA Technology. All rights reserved.</p>
+        <p className="pt-8 text-sm">{t("copyright")}</p>
       </div>
     </footer>
   );

@@ -8,9 +8,7 @@ export type ProductData = {
   slug: "tc-100" | "tc-500" | "tc-200";
   model: string;
   title: string;
-  price: string;
   status: "available" | "coming-soon";
-  purchaseLinks?: { label: string; href: string }[];
   manualUrl?: string;
   tagline: string;
   description: string;
@@ -37,18 +35,7 @@ export const products: Record<ProductData["slug"], ProductData> = {
     slug: "tc-100",
     model: "TC-100",
     title: "TIDEA TC-100 Cordless Stick Vacuum",
-    price: "$299.99",
     status: "available",
-    purchaseLinks: [
-      {
-        label: "Shop at Walmart.com (US)",
-        href: "https://www.walmart.com/ip/TIDEA-TC-100-Cordless-Stick-Vacuum-Cleaner-Lightweight-Vacuum-50-min-runtime-Digital-Display-Designed-for-Floor-Carpet-Pet-Hair/21053313590",
-      },
-      {
-        label: "Shop at Walmart.ca (Canada)",
-        href: "https://www.walmart.ca/en/ip/TIDEA-TC-100-Cordless-Stick-Vacuum-Cleaner-Lightweight-Vacuum-45-min-runtime-Digital-Display-Designed-for-Floor-Carpet-Pet-Hair/75QWA96EWP41",
-      },
-    ],
     manualUrl: "https://www.tidea-tech.com/_files/ugd/eeafbb_e85a5e7e4a26463fa68419150c7dfb26.pdf",
     tagline: "Lightweight Design. Powerful Everyday Cleaning.",
     description:
@@ -138,7 +125,6 @@ export const products: Record<ProductData["slug"], ProductData> = {
     slug: "tc-500",
     model: "TC-500",
     title: "TIDEA TC-500 Self-Emptying Cordless Vacuum",
-    price: "$299.99",
     status: "coming-soon",
     tagline: "Dock It. It Empties Itself.",
     description:
@@ -212,7 +198,6 @@ export const products: Record<ProductData["slug"], ProductData> = {
     slug: "tc-200",
     model: "TC-200",
     title: "TIDEA TC-200 2-in-1 Wet & Dry Cordless Vacuum",
-    price: "$299.99",
     status: "coming-soon",
     tagline: "One Vacuum. Two Ways to Clean.",
     description:

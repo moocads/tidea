@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import {getTranslations, setRequestLocale} from "next-intl/server";
 import { ChevronDown, Gauge, ShieldCheck, Sparkles } from "lucide-react";
-import { collectionProducts, type ProductData } from "@/lib/content";
+import type { ProductData } from "@/lib/content";
+import {getCollectionProducts} from "@/lib/localized-content";
 import { Reveal } from "@/components/reveal";
+import {Link} from "@/i18n/navigation";
 
 const collectionCards: Record<ProductData["slug"], { image: string; position: string }> = {
   "tc-100": { image: "/images/tidea/collection/imgi_5_R1.png", position: "object-center" },
@@ -11,24 +13,29 @@ const collectionCards: Record<ProductData["slug"], { image: string; position: st
   "tc-500": { image: "/images/tidea/collection/imgi_6_tc-500.png", position: "object-center" },
 };
 
-export const metadata: Metadata = { title: "Cordless Vacuum Cleaners" };
+const reasonIcons = [Gauge, Sparkles, ShieldCheck];
 
-const reasons = [
-  { icon: Gauge, number: "1", title: "Save Time, Without Compromise", body: "Cordless stick vacuums make everyday cleaning easier, reducing effort while delivering reliable performance and helping you keep your home effortlessly clean." },
-  { icon: Sparkles, number: "2", title: "Low-Maintenance by Design", body: "Smart design choices reduce the need for frequent cleaning and upkeep, keeping maintenance quick, clean, and out of the way." },
-  { icon: ShieldCheck, number: "3", title: "Built for Everyday Spaces", body: "From open living areas to hard-to-reach corners, cordless stick vacuums adapt to real-life spaces and surfaces, delivering consistent results throughout your home." },
-];
+export async function generateMetadata({params}: {params: Promise<{locale: string}>}): Promise<Metadata> {
+  const {locale} = await params;
+  const t = await getTranslations({locale, namespace: "Vacuums"});
+  return {title: t("meta")};
+}
 
-export default function CollectionPage() {
+export default async function CollectionPage({params}: {params: Promise<{locale: string}>}) {
+  const {locale} = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Vacuums");
+  const reasons = t.raw("reasons") as {title: string; body: string}[];
+  const collectionProducts = getCollectionProducts(locale);
   return (
     <main>
       <section className="relative min-h-[690px] overflow-hidden">
-        <Image alt="TIDEA vacuum collection" className="object-cover" fill preload sizes="100vw" src="/images/tidea/eeafbb_591680091eac41fa9d0924a156fad624~mv2.jpg" />
+        <Image alt={t("heroAlt")} className="object-cover" fill preload sizes="100vw" src="/images/tidea/eeafbb_591680091eac41fa9d0924a156fad624~mv2.jpg" />
         <div className="hero-overlay absolute inset-0" />
         <div className="page-shell relative flex min-h-[690px] items-end pb-16 pt-16 text-white">
           <div className="max-w-3xl">
-            <h1 className="page-title">Designed for Everyday Living</h1>
-            <p className="lead-copy mt-6 text-white/90">Built for modern homes, balancing performance with comfort to help you stay ahead of dust, debris and daily clutter. Cleaning becomes less of a task, and more of a natural part of everyday life.</p>
+            <h1 className="page-title">{t("title")}</h1>
+            <p className="lead-copy mt-6 text-white/90">{t("body")}</p>
           </div>
         </div>
       </section>
@@ -60,15 +67,17 @@ export default function CollectionPage() {
 
       <section className="section-space bg-[#e7edf8]">
         <div className="page-shell">
-          <h2 className="section-title">Why TIDEA?</h2>
+          <h2 className="section-title">{t("why")}</h2>
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {reasons.map((reason) => (
-              <div className="rounded-[28px] bg-white p-8" key={reason.number}>
-                <div className="flex items-center justify-between text-[#567dbd]"><reason.icon aria-hidden size={30} /><span className="text-sm">0{reason.number}</span></div>
+            {reasons.map((reason, index) => {
+              const Icon = reasonIcons[index];
+              return (
+              <div className="rounded-[28px] bg-white p-8" key={reason.title}>
+                <div className="flex items-center justify-between text-[#567dbd]"><Icon aria-hidden size={30} /><span className="text-sm">0{index + 1}</span></div>
                 <h3 className="card-title mt-8">{reason.title}</h3>
                 <p className="card-copy mt-4 text-black/70">{reason.body}</p>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </section>

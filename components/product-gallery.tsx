@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import {useTranslations} from "next-intl";
 
 const visibleThumbnailCount = 5;
 
 export function ProductGallery({ images, model }: { images: string[]; model: string }) {
+  const t = useTranslations("ProductUI");
   const [selected, setSelected] = useState(0);
   const [thumbnailStart, setThumbnailStart] = useState(0);
   const hasCarousel = images.length > visibleThumbnailCount;
@@ -17,7 +19,7 @@ export function ProductGallery({ images, model }: { images: string[]; model: str
     <div>
       <div className="relative aspect-square overflow-hidden rounded-[18px] bg-[#f2f5fa]">
         <Image
-          alt={`${model} product view`}
+          alt={t("productView", {model})}
           className="object-contain p-6 md:p-4"
           fill
           preload
@@ -28,7 +30,7 @@ export function ProductGallery({ images, model }: { images: string[]; model: str
       <div className="mt-4 flex items-center gap-2">
         {hasCarousel ? (
           <button
-            aria-label="Show previous product images"
+            aria-label={t("previousImages")}
             className="grid size-8 shrink-0 place-items-center rounded-full border border-black/15 transition hover:border-[#4f73b1] hover:text-[#4f73b1] disabled:cursor-not-allowed disabled:opacity-30"
             disabled={thumbnailStart === 0}
             onClick={() => setThumbnailStart((start) => Math.max(0, start - 1))}
@@ -42,7 +44,7 @@ export function ProductGallery({ images, model }: { images: string[]; model: str
             const imageIndex = thumbnailStart + visibleIndex;
             return (
               <button
-                aria-label={`View ${model} image ${imageIndex + 1}`}
+                aria-label={t("viewImage", {model, number: imageIndex + 1})}
                 aria-pressed={selected === imageIndex}
                 className={`relative aspect-square overflow-hidden rounded-xl border bg-[#f5f7fb] transition ${selected === imageIndex ? "border-[#4f73b1]" : "border-transparent hover:border-black/20"}`}
                 key={image}
@@ -56,7 +58,7 @@ export function ProductGallery({ images, model }: { images: string[]; model: str
         </div>
         {hasCarousel ? (
           <button
-            aria-label="Show next product images"
+            aria-label={t("nextImages")}
             className="grid size-8 shrink-0 place-items-center rounded-full border border-black/15 transition hover:border-[#4f73b1] hover:text-[#4f73b1] disabled:cursor-not-allowed disabled:opacity-30"
             disabled={thumbnailStart === maxThumbnailStart}
             onClick={() => setThumbnailStart((start) => Math.min(maxThumbnailStart, start + 1))}

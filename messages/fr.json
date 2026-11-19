@@ -90,7 +90,7 @@
     "faqLink": "Voir la FAQ du TC-100",
     "imageAlt": "Aspirateur sans fil TIDEA dans une maison lumineuse",
     "formTitle": "Nous sommes là pour vous aider",
-    "formBody": "Dans la mesure du possible, indiquez votre numéro de commande, le modèle et joignez une photo nette ou une courte vidéo. Cela nous aidera à résoudre le problème plus rapidement."
+    "formBody": "Dans la mesure du possible, indiquez votre numéro de commande et le modèle. Cela nous aidera à résoudre le problème plus rapidement."
   },
   "Partnership": {
     "meta": "Partenariat",
@@ -106,13 +106,12 @@
     "lastName": "Nom",
     "email": "Courriel",
     "retailer": "Où avez-vous acheté le produit?",
-    "retailers": ["Walmart", "Amazon", "Autre détaillant"],
+    "retailers": ["Walmart.com (É.-U.)", "Walmart.ca (Canada)", "Magasin Walmart", "Autre"],
     "orderNumber": "Numéro de commande",
     "serialNumber": "Numéro de série (sur la plaque signalétique)",
     "topic": "Comment pouvons-nous vous aider?",
-    "topics": ["Question sur un produit", "Dépannage", "Réclamation de garantie", "Pièce de rechange", "Autre"],
+    "topics": ["Une question sur l’utilisation", "Quelque chose ne fonctionne pas (réclamation de garantie)", "Pièce manquante ou endommagée", "Commander une pièce de rechange", "Autre"],
     "message": "Message",
-    "attachment": "Photo ou vidéo",
     "marketing": "Pouvons-nous vous envoyer des nouvelles sur nos produits?",
     "yes": "Oui",
     "no": "Non",

@@ -90,7 +90,7 @@
     "faqLink": "View TC-100 FAQs",
     "imageAlt": "TIDEA cordless vacuum in a bright home",
     "formTitle": "We’re Here to Help",
-    "formBody": "Include your order number, model, and a clear photo or short video when possible. It helps us resolve the issue more quickly."
+    "formBody": "Include your order number and model when possible. It helps us resolve the issue more quickly."
   },
   "Partnership": {
     "meta": "Partnership",
@@ -106,13 +106,12 @@
     "lastName": "Last name",
     "email": "Email",
     "retailer": "Where did you buy it?",
-    "retailers": ["Walmart", "Amazon", "Other retailer"],
+    "retailers": ["Walmart.com (US)", "Walmart.ca (Canada)", "Walmart store", "Other"],
     "orderNumber": "Order number",
     "serialNumber": "Serial number (on the rating label)",
     "topic": "What do you need help with?",
-    "topics": ["Product question", "Troubleshooting", "Warranty claim", "Replacement part", "Other"],
+    "topics": ["A question about using it", "Something isn't working (warranty claim)", "Missing or damaged part", "Ordering a replacement part", "Other"],
     "message": "Message",
-    "attachment": "Photo or video",
     "marketing": "May we contact you with product updates?",
     "yes": "Yes",
     "no": "No",

@@ -31,10 +31,6 @@ export function ContactForm() {
         <span className="field-label">{t("message")} *</span>
         <textarea className="field-box min-h-40 resize-y" name="message" required />
       </label>
-      <label className="md:col-span-2">
-        <span className="field-label">{t("attachment")}</span>
-        <input accept="image/*,video/*" className="field-box file:mr-4 file:rounded-full file:border-0 file:bg-[#e7edf8] file:px-4 file:py-2" name="attachment" type="file" />
-      </label>
       <fieldset className="md:col-span-2">
         <legend className="field-label">{t("marketing")}</legend>
         <div className="flex gap-6 text-sm">

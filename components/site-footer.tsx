@@ -1,23 +1,57 @@
 "use client";
 
 import Image from "next/image";
-import {useTranslations} from "next-intl";
-import { FormEvent, useState } from "react";
+import {useLocale, useTranslations} from "next-intl";
+import {FormEvent, useState} from "react";
 import {Link} from "@/i18n/navigation";
+import {submitForm} from "@/lib/form-submissions";
+import {TurnstileWidget} from "@/components/turnstile-widget";
 
 export function SiteFooter() {
   const t = useTranslations("Footer");
-  const [message, setMessage] = useState("");
+  const locale = useLocale() === "fr" ? "fr" : "en";
+  const [message, setMessage] = useState<{type: "error" | "success"; text: string} | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
   const footerGroups = [
     [[t("home"), "/"], [t("about"), "/aboutus"], [t("contact"), "/contact-us"]],
     [[t("products"), "/vacuums"], [t("partnership"), "/partnership"]],
     [[t("support"), "/support-tc-100"], [t("contactUs"), "/contact-us"], [t("faq"), "/support-tc-100"], [t("warranty"), "/warranty"], [t("privacy"), "/privacy-policy"], [t("terms"), "/terms-and-conditions"]],
   ] as const;
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!event.currentTarget.checkValidity()) return;
-    setMessage(t("unavailable"));
+    const form = event.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    if (!turnstileToken) {
+      setMessage({type: "error", text: t("verificationRequired")});
+      return;
+    }
+
+    const data = new FormData(form);
+    setSubmitting(true);
+    setMessage(null);
+    try {
+      const result = await submitForm({
+        kind: "newsletter",
+        locale,
+        email: String(data.get("email") ?? "").trim(),
+        consent: true,
+        turnstileToken,
+        faxNumber: String(data.get("faxNumber") ?? "").trim(),
+      });
+      form.reset();
+      setMessage({type: "success", text: t("success", {reference: result.reference})});
+    } catch {
+      setMessage({type: "error", text: t("error")});
+    } finally {
+      setSubmitting(false);
+      setTurnstileResetKey((key) => key + 1);
+    }
   }
 
   return (
@@ -44,12 +78,12 @@ export function SiteFooter() {
               </div>
             ))}
           </div>
-          <form className="space-y-6" noValidate onSubmit={handleSubmit}>
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <h2 className="card-title">{t("subscribe")}</h2>
             <label className="block text-sm" htmlFor="newsletter-email">{t("email")} *</label>
             <input className="field-line" id="newsletter-email" name="email" required type="email" />
             <label className="flex items-start gap-3 text-sm">
-              <input className="mt-1 size-4 accent-[#567dbd]" type="checkbox" />
+              <input className="mt-1 size-4 accent-[#567dbd]" name="consent" required type="checkbox" />
               <span>{t("consent")}</span>
             </label>
             <p className="text-xs leading-5 text-black/60">
@@ -57,8 +91,10 @@ export function SiteFooter() {
                 privacy: (chunks) => <Link className="underline underline-offset-2 hover:text-[#5579b8]" href="/privacy-policy">{chunks}</Link>,
               })}
             </p>
-            <button className="button-dark" type="submit">{t("submit")}</button>
-            {message ? <p aria-live="polite" className="text-sm text-[#4f6f9f]">{message}</p> : null}
+            <label aria-hidden className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">Fax<input autoComplete="off" name="faxNumber" tabIndex={-1} type="text" /></label>
+            <TurnstileWidget action="newsletter" onToken={setTurnstileToken} resetKey={turnstileResetKey} unavailableMessage={t("securityUnavailable")} />
+            <button className="button-dark disabled:cursor-not-allowed disabled:opacity-60" disabled={submitting} type="submit">{submitting ? t("sending") : t("submit")}</button>
+            {message ? <p aria-live="polite" className={`text-sm ${message.type === "error" ? "text-red-700" : "text-[#4f6f9f]"}`}>{message.text}</p> : null}
           </form>
         </div>
         <p className="pt-8 text-sm">{t("copyright")}</p>

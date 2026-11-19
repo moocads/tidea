@@ -40,7 +40,11 @@
     "consent": "Yes, subscribe me to your newsletter.",
     "privacyNotice": "By subscribing, you agree to receive emails from TIDEA. You can unsubscribe at any time. See our <privacy>Privacy Policy</privacy>.",
     "submit": "Submit",
-    "unavailable": "Newsletter submission is not connected in this frontend-only phase.",
+    "sending": "Sending...",
+    "verificationRequired": "Please complete the security check.",
+    "securityUnavailable": "The security check is not configured. Please contact support@tidea-tech.com.",
+    "success": "Thank you. Your subscription was received. Reference: {reference}",
+    "error": "We couldn’t send your subscription. Please try again or email support@tidea-tech.com.",
     "copyright": "© 2026 TIDEA Technology. All rights reserved."
   },
   "Home": {
@@ -101,7 +105,11 @@
     "formTitle": "Look Forward to Connecting"
   },
   "Forms": {
-    "unavailable": "Form submission is not connected in this frontend-only phase.",
+    "sending": "Sending...",
+    "verificationRequired": "Please complete the security check.",
+    "securityUnavailable": "The security check is not configured. Please email support@tidea-tech.com.",
+    "success": "Thank you. Your form was received. Reference: {reference}",
+    "error": "We couldn’t send your form. Please try again or email support@tidea-tech.com.",
     "firstName": "First name",
     "lastName": "Last name",
     "email": "Email",

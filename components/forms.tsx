@@ -1,21 +1,65 @@
 "use client";
 
-import {useTranslations} from "next-intl";
-import { FormEvent, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import {useLocale, useTranslations} from "next-intl";
+import {FormEvent, useRef, useState} from "react";
+import {ArrowLeft, ArrowRight} from "lucide-react";
 import {Link} from "@/i18n/navigation";
+import {submitForm} from "@/lib/form-submissions";
+import {TurnstileWidget} from "@/components/turnstile-widget";
+
+type FormMessage = {type: "error" | "success"; text: string} | null;
+
+function formValue(data: FormData, name: string): string {
+  return String(data.get(name) ?? "").trim();
+}
 
 export function ContactForm() {
   const t = useTranslations("Forms");
-  const [message, setMessage] = useState("");
+  const locale = useLocale() === "fr" ? "fr" : "en";
+  const [message, setMessage] = useState<FormMessage>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!event.currentTarget.checkValidity()) {
-      event.currentTarget.reportValidity();
+    const form = event.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
-    setMessage(t("unavailable"));
+    if (!turnstileToken) {
+      setMessage({type: "error", text: t("verificationRequired")});
+      return;
+    }
+
+    const data = new FormData(form);
+    setSubmitting(true);
+    setMessage(null);
+    try {
+      const result = await submitForm({
+        kind: "contact",
+        locale,
+        firstName: formValue(data, "firstName"),
+        lastName: formValue(data, "lastName"),
+        email: formValue(data, "email"),
+        retailer: formValue(data, "retailer"),
+        orderNumber: formValue(data, "orderNumber") || undefined,
+        serialNumber: formValue(data, "serialNumber") || undefined,
+        topic: formValue(data, "topic"),
+        message: formValue(data, "message"),
+        marketingConsent: formValue(data, "marketing") === "yes",
+        turnstileToken,
+        faxNumber: formValue(data, "faxNumber"),
+      });
+      form.reset();
+      setMessage({type: "success", text: t("success", {reference: result.reference})});
+    } catch {
+      setMessage({type: "error", text: t("error")});
+    } finally {
+      setSubmitting(false);
+      setTurnstileResetKey((key) => key + 1);
+    }
   }
 
   return (
@@ -38,10 +82,14 @@ export function ContactForm() {
           <label className="flex items-center gap-2"><input defaultChecked name="marketing" type="radio" value="no" /> {t("no")}</label>
         </div>
       </fieldset>
+      <HoneypotField />
       <div className="md:col-span-2">
-        <button className="button-primary" type="submit">{t("send")}</button>
+        <TurnstileWidget action="contact" onToken={setTurnstileToken} resetKey={turnstileResetKey} unavailableMessage={t("securityUnavailable")} />
+      </div>
+      <div className="md:col-span-2">
+        <button className="button-primary disabled:cursor-not-allowed disabled:opacity-60" disabled={submitting} type="submit">{submitting ? t("sending") : t("send")}</button>
         <p className="mt-4 text-xs leading-5 text-black/60">{t("privacyNotice")} <Link className="underline underline-offset-2 hover:text-brand-700" href="/privacy-policy">{t("privacy")}</Link>.</p>
-        {message ? <p aria-live="polite" className="mt-4 text-sm text-[#4f6f9f]">{message}</p> : null}
+        {message ? <p aria-live="polite" className={`mt-4 text-sm ${message.type === "error" ? "text-red-700" : "text-[#4f6f9f]"}`}>{message.text}</p> : null}
       </div>
     </form>
   );
@@ -49,8 +97,12 @@ export function ContactForm() {
 
 export function PartnershipForm() {
   const t = useTranslations("Forms");
+  const locale = useLocale() === "fr" ? "fr" : "en";
   const [step, setStep] = useState(1);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<FormMessage>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
   const formRef = useRef<HTMLFormElement>(null);
 
   function next() {
@@ -65,13 +117,47 @@ export function PartnershipForm() {
     setStep(2);
   }
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!event.currentTarget.checkValidity()) {
-      event.currentTarget.reportValidity();
+    const form = event.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
-    setMessage(t("unavailable"));
+    if (!turnstileToken) {
+      setMessage({type: "error", text: t("verificationRequired")});
+      return;
+    }
+
+    const data = new FormData(form);
+    setSubmitting(true);
+    setMessage(null);
+    try {
+      const result = await submitForm({
+        kind: "partnership",
+        locale,
+        firstName: formValue(data, "firstName"),
+        lastName: formValue(data, "lastName"),
+        email: formValue(data, "email"),
+        phone: formValue(data, "phone") || undefined,
+        position: formValue(data, "position"),
+        company: formValue(data, "company"),
+        address: formValue(data, "address"),
+        years: Number(formValue(data, "years")),
+        websiteUrl: formValue(data, "website"),
+        turnstileToken,
+        faxNumber: formValue(data, "faxNumber"),
+      });
+      form.reset();
+      setTurnstileToken("");
+      setStep(1);
+      setMessage({type: "success", text: t("success", {reference: result.reference})});
+    } catch {
+      setMessage({type: "error", text: t("error")});
+    } finally {
+      setSubmitting(false);
+      setTurnstileResetKey((key) => key + 1);
+    }
   }
 
   return (
@@ -91,18 +177,29 @@ export function PartnershipForm() {
         <TextField label={t("years")} min="0" name="years" required type="number" />
         <TextField label={t("website")} name="website" required type="url" />
       </div>
+      <HoneypotField />
+      {step === 2 ? <div className="mt-8"><TurnstileWidget action="partnership" onToken={setTurnstileToken} resetKey={turnstileResetKey} unavailableMessage={t("securityUnavailable")} /></div> : null}
       <div className="mt-8 flex flex-wrap gap-3">
         {step === 1 ? (
           <button className="button-primary" onClick={next} type="button">{t("next")} <ArrowRight aria-hidden size={17} /></button>
         ) : (
           <>
-            <button className="button-outline" onClick={() => setStep(1)} type="button"><ArrowLeft aria-hidden size={17} /> {t("back")}</button>
-            <button className="button-primary" type="submit">{t("submit")}</button>
+            <button className="button-outline" onClick={() => { setTurnstileToken(""); setStep(1); }} type="button"><ArrowLeft aria-hidden size={17} /> {t("back")}</button>
+            <button className="button-primary disabled:cursor-not-allowed disabled:opacity-60" disabled={submitting} type="submit">{submitting ? t("sending") : t("submit")}</button>
           </>
         )}
       </div>
-      {message ? <p aria-live="polite" className="mt-4 text-sm text-[#4f6f9f]">{message}</p> : null}
+      {message ? <p aria-live="polite" className={`mt-4 text-sm ${message.type === "error" ? "text-red-700" : "text-[#4f6f9f]"}`}>{message.text}</p> : null}
     </form>
+  );
+}
+
+function HoneypotField() {
+  return (
+    <label aria-hidden className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+      Fax
+      <input autoComplete="off" name="faxNumber" tabIndex={-1} type="text" />
+    </label>
   );
 }
 

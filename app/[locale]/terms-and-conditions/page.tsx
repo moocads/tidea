@@ -32,7 +32,7 @@ const sections: LegalSection[] = [
   },
   {
     title: "5. Your submissions",
-    content: <><p>When you contact us, submit a warranty claim, send a review, or upload photos or videos, you confirm that the information is accurate and that you have the right to share it. You allow TIDEA to use your submission to respond to you, to provide support and warranty service, and to improve our products. We will not publish your review, name, photos or videos without your permission.</p><p>Please do not send us confidential information. Product ideas or suggestions you send may be used by TIDEA without any obligation to you. How we handle personal information is explained in our Privacy Policy.</p></>,
+    content: <><p>When you contact us, submit a warranty claim, or send a review, you confirm that the information is accurate and that you have the right to share it. You allow TIDEA to use your submission to respond to you, to provide support and warranty service, and to improve our products. We will not publish your review or name without your permission.</p><p>Please do not send us confidential information. Product ideas or suggestions you send may be used by TIDEA without any obligation to you. How we handle personal information is explained in our Privacy Policy.</p></>,
   },
   {
     title: "6. Acceptable use",

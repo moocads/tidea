@@ -40,7 +40,11 @@
     "consent": "Oui, je souhaite m’abonner à l’infolettre.",
     "privacyNotice": "En vous abonnant, vous acceptez de recevoir des courriels de TIDEA. Vous pouvez vous désabonner en tout temps. Consultez notre <privacy>politique de confidentialité</privacy>.",
     "submit": "Envoyer",
-    "unavailable": "L’inscription à l’infolettre n’est pas connectée dans cette version frontale.",
+    "sending": "Envoi en cours...",
+    "verificationRequired": "Veuillez effectuer la vérification de sécurité.",
+    "securityUnavailable": "La vérification de sécurité n’est pas configurée. Écrivez à support@tidea-tech.com.",
+    "success": "Merci. Votre abonnement a été reçu. Référence : {reference}",
+    "error": "Nous n’avons pas pu envoyer votre abonnement. Réessayez ou écrivez à support@tidea-tech.com.",
     "copyright": "© 2026 TIDEA Technology. Tous droits réservés."
   },
   "Home": {
@@ -101,7 +105,11 @@
     "formTitle": "Au plaisir d’échanger avec vous"
   },
   "Forms": {
-    "unavailable": "L’envoi du formulaire n’est pas connecté dans cette version frontale.",
+    "sending": "Envoi en cours...",
+    "verificationRequired": "Veuillez effectuer la vérification de sécurité.",
+    "securityUnavailable": "La vérification de sécurité n’est pas configurée. Écrivez à support@tidea-tech.com.",
+    "success": "Merci. Votre formulaire a été reçu. Référence : {reference}",
+    "error": "Nous n’avons pas pu envoyer votre formulaire. Réessayez ou écrivez à support@tidea-tech.com.",
     "firstName": "Prénom",
     "lastName": "Nom",
     "email": "Courriel",

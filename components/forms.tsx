@@ -3,11 +3,12 @@
 import {useLocale, useTranslations} from "next-intl";
 import {FormEvent, useRef, useState} from "react";
 import {ArrowLeft, ArrowRight} from "lucide-react";
+import {FormStatusMessage, type FormStatus} from "@/components/form-status-message";
+import {TurnstileWidget} from "@/components/turnstile-widget";
 import {Link} from "@/i18n/navigation";
 import {submitForm} from "@/lib/form-submissions";
-import {TurnstileWidget} from "@/components/turnstile-widget";
 
-type FormMessage = {type: "error" | "success"; text: string} | null;
+type FormMessage = FormStatus | null;
 
 function formValue(data: FormData, name: string): string {
   return String(data.get(name) ?? "").trim();
@@ -89,7 +90,7 @@ export function ContactForm() {
       <div className="md:col-span-2">
         <button className="button-primary disabled:cursor-not-allowed disabled:opacity-60" disabled={submitting} type="submit">{submitting ? t("sending") : t("send")}</button>
         <p className="mt-4 text-xs leading-5 text-black/60">{t("privacyNotice")} <Link className="underline underline-offset-2 hover:text-brand-700" href="/privacy-policy">{t("privacy")}</Link>.</p>
-        {message ? <p aria-live="polite" className={`mt-4 text-sm ${message.type === "error" ? "text-red-700" : "text-[#4f6f9f]"}`}>{message.text}</p> : null}
+        {message ? <FormStatusMessage message={message} successTitle={t("successTitle")} /> : null}
       </div>
     </form>
   );
@@ -189,7 +190,7 @@ export function PartnershipForm() {
           </>
         )}
       </div>
-      {message ? <p aria-live="polite" className={`mt-4 text-sm ${message.type === "error" ? "text-red-700" : "text-[#4f6f9f]"}`}>{message.text}</p> : null}
+      {message ? <FormStatusMessage message={message} successTitle={t("successTitle")} /> : null}
     </form>
   );
 }

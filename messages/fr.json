@@ -43,6 +43,7 @@
     "sending": "Envoi en cours...",
     "verificationRequired": "Veuillez effectuer la vérification de sécurité.",
     "securityUnavailable": "La vérification de sécurité n’est pas configurée. Écrivez à support@tidea-tech.com.",
+    "successTitle": "Abonnement confirmé",
     "success": "Merci. Votre abonnement a été reçu. Référence : {reference}",
     "error": "Nous n’avons pas pu envoyer votre abonnement. Réessayez ou écrivez à support@tidea-tech.com.",
     "copyright": "© 2026 TIDEA Technology. Tous droits réservés."
@@ -108,6 +109,7 @@
     "sending": "Envoi en cours...",
     "verificationRequired": "Veuillez effectuer la vérification de sécurité.",
     "securityUnavailable": "La vérification de sécurité n’est pas configurée. Écrivez à support@tidea-tech.com.",
+    "successTitle": "Message envoyé avec succès",
     "success": "Merci. Votre formulaire a été reçu. Référence : {reference}",
     "error": "Nous n’avons pas pu envoyer votre formulaire. Réessayez ou écrivez à support@tidea-tech.com.",
     "firstName": "Prénom",
@@ -153,10 +155,10 @@
     "pause": "Mettre en pause le défilement automatique des témoignages",
     "play": "Reprendre le défilement automatique des témoignages",
     "items": [
-      {"quote": "J’utilise cet aspirateur depuis un mois et il est formidable. L’aspiration élimine parfaitement les poils d’animaux et la poussière, tant sur les tapis que sur le bois franc. Il est léger et très facile à vider. C’est le meilleur aspirateur que j’ai eu.", "name": "Sarah M.", "attribution": "Toronto, Ontario"},
-      {"quote": "Cet aspirateur a dépassé mes attentes. Il est silencieux, puissant, et la batterie dure assez longtemps pour nettoyer tout mon condo. J’adore son format compact, parfait pour la vie en ville. Je le recommande vivement!", "name": "David L.", "attribution": "Vancouver, Colombie-Britannique"},
-      {"quote": "J’adore vraiment ce produit! Il a la taille idéale, il est beau et étonnamment puissant. Il fonctionne très bien sur différentes surfaces et rend le nettoyage tellement plus facile. J’aime aussi l’éclairage intégré, qui aide à repérer la saleté autrement invisible.", "attribution": "Acheteur vérifié sur Walmart.com · États-Unis"},
-      {"quote": "Il offre de nombreuses fonctions intéressantes. J’aime particulièrement la tête motorisée pivotante : elle passe facilement sous les meubles et se manœuvre aisément autour des chaises et des tables. Dans l’ensemble, je le recommanderais à ma famille et à mes amis.", "attribution": "Acheteur vérifié sur Walmart.com · États-Unis", "disclosure": "Avis récompensé"}
+      {"quote": "J’utilise cet aspirateur depuis un mois et il est formidable. L’aspiration élimine parfaitement les poils d’animaux et la poussière, tant sur les tapis que sur le bois franc. Il est léger et très facile à vider. C’est le meilleur aspirateur que j’ai eu.", "name": "Sarah M.", "location": "Toronto, Ontario"},
+      {"quote": "Cet aspirateur a dépassé mes attentes. Il est silencieux, puissant, et la batterie dure assez longtemps pour nettoyer tout mon condo. J’adore son format compact, parfait pour la vie en ville. Je le recommande vivement!", "name": "David L.", "location": "Vancouver, Colombie-Britannique"},
+      {"quote": "J’adore vraiment ce produit! Il a la taille idéale, il est beau et étonnamment puissant. Il fonctionne très bien sur différentes surfaces et rend le nettoyage tellement plus facile. J’aime aussi l’éclairage intégré, qui aide à repérer la saleté autrement invisible.", "name": "Emily R.", "location": "États-Unis"},
+      {"quote": "Il offre de nombreuses fonctions intéressantes. J’aime particulièrement la tête motorisée pivotante : elle passe facilement sous les meubles et se manœuvre aisément autour des chaises et des tables. Dans l’ensemble, je le recommanderais à ma famille et à mes amis.", "name": "James K.", "location": "États-Unis", "disclosure": "Avis récompensé"}
     ]
   },
   "Vacuums": {
@@ -190,9 +192,9 @@
     "specs": "Caractéristiques techniques"
   },
   "Support": {
-    "meta": "Assistance TC-100",
+    "meta": "Service à la clientèle",
     "eyebrow": "Entretien du produit",
-    "title": "Assistance TC-100",
+    "title": "Service à la clientèle",
     "body": "Trouvez rapidement des réponses, des conseils d’entretien, les manuels du produit et la meilleure façon de joindre l’équipe d’assistance TIDEA.",
     "notice": "Votre TC-100 est neuf? Rechargez-le complètement, pendant environ 5,5 heures, avant le premier nettoyage. Les batteries perdent un peu de charge pendant le transport; il est donc normal qu’elle ne soit pas pleine au déballage.",
     "imageAlt": "Aspirateur-balai sans fil TIDEA TC-100",

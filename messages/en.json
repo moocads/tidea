@@ -43,6 +43,7 @@
     "sending": "Sending...",
     "verificationRequired": "Please complete the security check.",
     "securityUnavailable": "The security check is not configured. Please contact support@tidea-tech.com.",
+    "successTitle": "Subscription confirmed",
     "success": "Thank you. Your subscription was received. Reference: {reference}",
     "error": "We couldn’t send your subscription. Please try again or email support@tidea-tech.com.",
     "copyright": "© 2026 TIDEA Technology. All rights reserved."
@@ -108,6 +109,7 @@
     "sending": "Sending...",
     "verificationRequired": "Please complete the security check.",
     "securityUnavailable": "The security check is not configured. Please email support@tidea-tech.com.",
+    "successTitle": "Message sent successfully",
     "success": "Thank you. Your form was received. Reference: {reference}",
     "error": "We couldn’t send your form. Please try again or email support@tidea-tech.com.",
     "firstName": "First name",
@@ -153,10 +155,10 @@
     "pause": "Pause automatic testimonial rotation",
     "play": "Play automatic testimonial rotation",
     "items": [
-      {"quote": "I’ve been using this vacuum for a month now, and it’s amazing. The suction handles pet hair and dust perfectly on both carpet and hardwood. It’s lightweight and super easy to empty. The best vacuum I’ve owned.", "name": "Sarah M.", "attribution": "Toronto, Ontario"},
-      {"quote": "This vacuum exceeded my expectations. It’s quiet, powerful, and the battery lasts long enough to clean my entire condo. I love how compact it is—perfect for city living. Highly recommend!", "name": "David L.", "attribution": "Vancouver, British Columbia"},
-      {"quote": "I really love this product! It’s the perfect size, looks great, and is surprisingly powerful. It works really well on different surfaces and makes cleaning so much easier. I also love the built-in light because it helps you see dirt you might otherwise miss.", "attribution": "Verified Walmart.com buyer · United States"},
-      {"quote": "It has a lot of good features. One nice thing I really like is the swivel power head, great to get under furniture, easy to maneuver around chairs and tables. Overall I would recommend it to family and friends.", "attribution": "Verified Walmart.com buyer · United States", "disclosure": "Incentivized Review"}
+      {"quote": "I’ve been using this vacuum for a month now, and it’s amazing. The suction handles pet hair and dust perfectly on both carpet and hardwood. It’s lightweight and super easy to empty. The best vacuum I’ve owned.", "name": "Sarah M.", "location": "Toronto, Ontario"},
+      {"quote": "This vacuum exceeded my expectations. It’s quiet, powerful, and the battery lasts long enough to clean my entire condo. I love how compact it is—perfect for city living. Highly recommend!", "name": "David L.", "location": "Vancouver, British Columbia"},
+      {"quote": "I really love this product! It’s the perfect size, looks great, and is surprisingly powerful. It works really well on different surfaces and makes cleaning so much easier. I also love the built-in light because it helps you see dirt you might otherwise miss.", "name": "Emily R.", "location": "United States"},
+      {"quote": "It has a lot of good features. One nice thing I really like is the swivel power head, great to get under furniture, easy to maneuver around chairs and tables. Overall I would recommend it to family and friends.", "name": "James K.", "location": "United States", "disclosure": "Incentivized Review"}
     ]
   },
   "Vacuums": {
@@ -190,9 +192,9 @@
     "specs": "Technical Specifications"
   },
   "Support": {
-    "meta": "TC-100 Support",
+    "meta": "Customer Care",
     "eyebrow": "Product Care",
-    "title": "TC-100 Support",
+    "title": "Customer Care",
     "body": "Find quick answers, care guidance, product manuals, and the right way to contact the TIDEA support team.",
     "notice": "New TC-100? Charge it fully, about 5.5 hours, before your first clean. Batteries lose some charge in transit, so a partly empty battery out of the box is normal.",
     "imageAlt": "TIDEA TC-100 cordless stick vacuum",

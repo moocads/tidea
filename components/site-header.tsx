@@ -3,10 +3,12 @@
 import Image from "next/image";
 import {useLocale, useTranslations} from "next-intl";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import {Link, usePathname, useRouter} from "@/i18n/navigation";
 import {useRegion} from "@/components/region-provider";
 import {regionConfig, type Region} from "@/lib/region";
+import { EASE_OUT } from "@/lib/motion";
 
 function isCurrent(pathname: string, href: string) {
   if (href === "/") return pathname === href;
@@ -106,13 +108,17 @@ export function SiteHeader() {
   const t = useTranslations("Header");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+  const menuTransition = prefersReducedMotion
+    ? { duration: 0 }
+    : { duration: 0.3, ease: EASE_OUT };
   const mainLinks = [
     { href: "/" as const, label: t("home") },
     { href: "/aboutus" as const, label: t("about") },
     { href: "/partnership" as const, label: t("partnership") },
   ];
   const supportLinks = [
-    { href: "/support-tc-100" as const, label: t("faq") },
+    { href: "/customer-care" as const, label: t("faq") },
     { href: "/contact-us" as const, label: t("contact") },
     { href: "/warranty" as const, label: t("warranty") },
   ];
@@ -125,7 +131,7 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-8 md:pt-6 ">
-      <div className="mx-auto flex h-14 max-w-[1380px] items-center justify-between rounded-full border border-white/60 bg-white/65 px-6 shadow-[0_12px_40px_rgba(15,35,65,0.16),inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur-xl backdrop-saturate-150 md:h-16 md:px-8">
+      <div className="mx-auto flex h-14 max-w-[1380px] items-center justify-between rounded-full border border-white/60 bg-white/65 px-6 shadow-[0_12px_40px_rgba(15,35,65,0.16),inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur-xl backdrop-saturate-150 md:h-16 md:px-8 z-50">
         <Link aria-label={t("homeLabel")} href="/" className="relative z-50 block w-[116px] md:w-[132px]">
           <Image
             alt="TIDEA"
@@ -148,7 +154,7 @@ export function SiteHeader() {
             {t("about")}
           </Link>
           <div className="group relative py-4">
-            <Link className={isCurrent(pathname, "/support-tc-100") ? "nav-link active flex items-center gap-1" : "nav-link flex items-center gap-1"} href="/support-tc-100">
+            <Link className={isCurrent(pathname, "/customer-care") ? "nav-link active flex items-center gap-1" : "nav-link flex items-center gap-1"} href="/customer-care">
               {t("support")} <ChevronDown aria-hidden size={15} />
             </Link>
             <div className="invisible absolute left-1/2 top-full w-44 -translate-x-1/2 rounded-2xl bg-white p-2 opacity-0 shadow-[0_16px_36px_rgba(29,45,70,0.16)] transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
@@ -176,25 +182,34 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {open ? (
-        <div className="fixed inset-0 z-40 overflow-y-auto bg-[#eef2f8] px-8 pb-12 pt-16 md:hidden">
-          <nav aria-label={t("mobileNavigation")} className="mx-auto mt-12 max-w-md">
-            <RegionControls mobile />
-            {mainLinks.slice(0, 1).map((link) => (
-              <Link className="mobile-nav-link" href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
-            ))}
-            <Link className="mobile-nav-link" href="/vacuums" onClick={() => setOpen(false)}>{t("products")}</Link>
-            <p className="mb-3 mt-8 text-xs font-semibold uppercase tracking-[0.15em] text-[#5676ae]">{t("company")}</p>
-            {mainLinks.slice(1).map((link) => (
-              <Link className="mobile-nav-link" href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
-            ))}
-            <p className="mb-3 mt-8 text-xs font-semibold uppercase tracking-[0.15em] text-[#5676ae]">{t("support")}</p>
-            {supportLinks.map((link) => (
-              <Link className="mobile-nav-link" href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
-            ))}
-          </nav>
-        </div>
-      ) : null}
+      <AnimatePresence>
+        {open ? (
+          <motion.div
+            animate={{ opacity: 1 }}
+            className="fixed inset-0 z-40 overflow-y-auto bg-[#eef2f8] px-8 pb-12 pt-16 md:hidden"
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            key="mobile-menu"
+            transition={menuTransition}
+          >
+            <nav aria-label={t("mobileNavigation")} className="mx-auto mt-12 max-w-md">
+              <RegionControls mobile />
+              {mainLinks.slice(0, 1).map((link) => (
+                <Link className="mobile-nav-link" href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
+              ))}
+              <Link className="mobile-nav-link" href="/vacuums" onClick={() => setOpen(false)}>{t("products")}</Link>
+              <p className="mb-3 mt-8 text-xs font-semibold uppercase tracking-[0.15em] text-[#5676ae]">{t("company")}</p>
+              {mainLinks.slice(1).map((link) => (
+                <Link className="mobile-nav-link" href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
+              ))}
+              <p className="mb-3 mt-8 text-xs font-semibold uppercase tracking-[0.15em] text-[#5676ae]">{t("support")}</p>
+              {supportLinks.map((link) => (
+                <Link className="mobile-nav-link" href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
+              ))}
+            </nav>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }

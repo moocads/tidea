@@ -40,7 +40,7 @@ export default async function HomePage({params}: {params: Promise<{locale: strin
         <div className="hero-overlay absolute inset-0" />
         <div className="page-shell relative flex min-h-[760px] items-center justify-start pb-12 pt-16 text-left text-white">
           <div className="w-full max-w-5xl">
-            <h1 className="max-w-[24ch] text-[60px] font-semibold leading-[1] uppercase"><span className="block whitespace-nowrap">{t("heroTitle1")}</span><span className="block whitespace-nowrap">{t("heroTitle2")}</span></h1>
+            <h1 className="max-w-[24ch] md:text-[60px] text-[35px] font-semibold leading-[1] uppercase"><span className="block whitespace-nowrap">{t("heroTitle1")}</span><span className="block whitespace-nowrap">{t("heroTitle2")}</span></h1>
             <p className="mt-6 text-white/90">{t("heroBody")}</p>
             <Link className="button-primary mt-8" href="/vacuums"><ShoppingBag aria-hidden size={17} /> {t("shopNow")}</Link>
           </div>
@@ -74,7 +74,7 @@ export default async function HomePage({params}: {params: Promise<{locale: strin
         <div className="page-shell relative z-10 grid items-center gap-12 md:grid-cols-2 md:gap-16">
           <Reveal>
             <p className="eyebrow text-black/85">{t("featured")}</p>
-            <h2 className="mt-4 text-[50px] font-semibold leading-[1.14] tracking-[-0.01em] text-black">{t("featuredTitle")}</h2>
+            <h2 className="mt-4 md:text-[50px] text-[35px]  font-semibold leading-[1.14] tracking-[-0.01em] text-black">{t("featuredTitle")}</h2>
      
               <Link className="button-primary mt-8" href="/vacuums"><ShoppingBag aria-hidden size={17} /> {t("shopNow")}</Link>
           </Reveal>

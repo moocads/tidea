@@ -12,7 +12,6 @@ type Testimonial = {
   quote: string;
   name?: string;
   location?: string;
-  attribution?: string;
   disclosure?: string;
 };
 
@@ -94,8 +93,7 @@ export function TestimonialSlider() {
 
             <footer className="mt-8">
               {testimonial.name ? <p className="font-semibold text-black">{testimonial.name}</p> : null}
-              <p className="mt-1 text-sm text-black/55">{testimonial.attribution ?? testimonial.location}</p>
-              {testimonial.disclosure ? <p className="mt-3 inline-flex rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800">{testimonial.disclosure}</p> : null}
+              {testimonial.location ? <p className="mt-1 text-sm text-black/55">{testimonial.location}</p> : null}
             </footer>
           </motion.article>
         </AnimatePresence>

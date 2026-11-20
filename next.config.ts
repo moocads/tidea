@@ -12,10 +12,10 @@ const nextConfig: NextConfig = {
       { source: "/home-1-1", destination: "/", statusCode: 301 },
       { source: "/aboutus-1", destination: "/aboutus", statusCode: 301 },
       { source: "/terms-and-conditions-1", destination: "/terms-and-conditions", statusCode: 301 },
-      { source: "/product-registration-form-1", destination: "/support-tc-100", statusCode: 301 },
-      { source: "/product-registration-form-2", destination: "/support-tc-100", statusCode: 301 },
-      { source: "/customer-care", destination: "/support-tc-100", statusCode: 301 },
-      { source: "/customer-care-1", destination: "/support-tc-100", statusCode: 301 },
+      { source: "/product-registration-form-1", destination: "/customer-care", statusCode: 301 },
+      { source: "/product-registration-form-2", destination: "/customer-care", statusCode: 301 },
+      { source: "/support-tc-100", destination: "/customer-care", statusCode: 301 },
+      { source: "/customer-care-1", destination: "/customer-care", statusCode: 301 },
     ];
   },
   turbopack: {

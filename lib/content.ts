@@ -45,7 +45,7 @@ export const products: Record<ProductData["slug"], ProductData> = {
       "/t100/imgi_3_eeafbb_3edf6561aa0445998f727019393820f4~mv2.png",
       "/t100/imgi_5_eeafbb_524f79750e0948ebaa8f332617a8e943~mv2.png",
       "/t100/imgi_7_eeafbb_ff68df7a538d4b44b54727896413fed9~mv2.png",
-      "/t100/imgi_8_eeafbb_a9046d7391324d61833aebaad7b88672~mv2.png",
+      "/t100/t-100-45-runtime-in-eco-mode.jpg",
       "/t100/imgi_9_eeafbb_ca3ea9bb82e44802bdacb85e5d5640b0~mv2.png",
       "/t100/imgi_10_eeafbb_553b7c6fe7ac4086b3a0a3fc7b89c2a7~mv2.png",
       "/t100/imgi_11_eeafbb_e36bf1128d784e418c06f6648e5d9a6e~mv2.png",
@@ -65,7 +65,7 @@ export const products: Record<ProductData["slug"], ProductData> = {
       {
         title: "Lightweight at Just 5.4 lbs",
         body: "Weighing only 5.4 lbs (2.47 kg) with the battery, TC-100 is easy to carry upstairs, maneuver around furniture, and lift to clean hard-to-reach corners.",
-        image: `${imageBase}/eeafbb_bcfb4c5234a64f0c8dc2d0f19e375c50~mv2.png`,
+        image: `${imageBase}/tc-100-lady-go-upstir.png`,
       },
       {
         title: "Easy, Mess-Free Maintenance",

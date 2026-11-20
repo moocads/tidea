@@ -3,21 +3,22 @@
 import Image from "next/image";
 import {useLocale, useTranslations} from "next-intl";
 import {FormEvent, useState} from "react";
+import {FormStatusMessage, type FormStatus} from "@/components/form-status-message";
+import {TurnstileWidget} from "@/components/turnstile-widget";
 import {Link} from "@/i18n/navigation";
 import {submitForm} from "@/lib/form-submissions";
-import {TurnstileWidget} from "@/components/turnstile-widget";
 
 export function SiteFooter() {
   const t = useTranslations("Footer");
   const locale = useLocale() === "fr" ? "fr" : "en";
-  const [message, setMessage] = useState<{type: "error" | "success"; text: string} | null>(null);
+  const [message, setMessage] = useState<FormStatus | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
   const [turnstileResetKey, setTurnstileResetKey] = useState(0);
   const footerGroups = [
     [[t("home"), "/"], [t("about"), "/aboutus"], [t("contact"), "/contact-us"]],
     [[t("products"), "/vacuums"], [t("partnership"), "/partnership"]],
-    [[t("support"), "/support-tc-100"], [t("contactUs"), "/contact-us"], [t("faq"), "/support-tc-100"], [t("warranty"), "/warranty"], [t("privacy"), "/privacy-policy"], [t("terms"), "/terms-and-conditions"]],
+    [[t("support"), "/customer-care"], [t("contactUs"), "/contact-us"], [t("faq"), "/customer-care"], [t("warranty"), "/warranty"], [t("privacy"), "/privacy-policy"], [t("terms"), "/terms-and-conditions"]],
   ] as const;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -94,7 +95,7 @@ export function SiteFooter() {
             <label aria-hidden className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">Fax<input autoComplete="off" name="faxNumber" tabIndex={-1} type="text" /></label>
             <TurnstileWidget action="newsletter" onToken={setTurnstileToken} resetKey={turnstileResetKey} unavailableMessage={t("securityUnavailable")} />
             <button className="button-dark disabled:cursor-not-allowed disabled:opacity-60" disabled={submitting} type="submit">{submitting ? t("sending") : t("submit")}</button>
-            {message ? <p aria-live="polite" className={`text-sm ${message.type === "error" ? "text-red-700" : "text-[#4f6f9f]"}`}>{message.text}</p> : null}
+            {message ? <FormStatusMessage message={message} successTitle={t("successTitle")} /> : null}
           </form>
         </div>
         <p className="pt-8 text-sm">{t("copyright")}</p>

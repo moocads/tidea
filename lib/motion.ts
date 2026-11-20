@@ -17,3 +17,14 @@ export const SCROLL_REVEAL = {
 export const TWO_COLUMN_OFFSET_X = 40;
 
 export const STAGGER_CHILDREN = 0.1;
+
+export const SUCCESS_MESSAGE_TRANSITION = {
+  duration: 0.4,
+  ease: EASE_OUT,
+} as const;
+
+export const SUCCESS_CHECK_TRANSITION = {
+  type: "spring",
+  stiffness: 420,
+  damping: 20,
+} as const;

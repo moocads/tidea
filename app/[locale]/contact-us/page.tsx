@@ -30,7 +30,7 @@ export default async function ContactPage({params}: {params: Promise<{locale: st
             </p>
             <Link
               className="mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-black/30 bg-white px-6 py-3 text-[15px] font-semibold tracking-[0.01em] transition hover:border-brand-600 hover:text-brand-700"
-              href="/support-tc-100"
+              href="/customer-care"
             >
               {t("faqLink")}
             </Link>
